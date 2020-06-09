@@ -8,21 +8,19 @@ import {
 } from 'reactstrap';
 import styles from './CarouselHome.module.css';
 
+const slide1 = require('./Inclinaison1.jpg');
+const slide2 = require('./Produit3.jpg');
+const slide3 = require('./Support1.jpg');
+
 const items = [
   {
-    src: 'https://jpcamara.com/wp-content/uploads/2015/02/carousel.jpg',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
+    src: slide1,
   },
   {
-    src: 'https://wowslider.com/sliders/demo-77/data1/images/road220058.jpg',
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    src: slide2,
   },
   {
-    src: 'https://wowslider.com/sliders/demo-77/data1/images/tuscany428041.jpg',
-    altText: 'Slide 3',
-    caption: 'Slide 3',
+    src: slide3,
   },
 ];
 
