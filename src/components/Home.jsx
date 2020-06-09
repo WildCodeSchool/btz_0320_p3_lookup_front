@@ -4,7 +4,6 @@ import CarouselHome from './carouselhome/CarouselHome';
 const Home = () => {
   return (
     <div>
-      <p>ok</p>
       <CarouselHome />
     </div>
   );
