@@ -10,20 +10,17 @@ import styles from './CarouselHome.module.css';
 
 const items = [
   {
-    src:
-      'https://images-na.ssl-images-amazon.com/images/I/611unF5H5KL._AC_SL1000_.jpg',
+    src: 'https://jpcamara.com/wp-content/uploads/2015/02/carousel.jpg',
     altText: 'Slide 1',
     caption: 'Slide 1',
   },
   {
-    src:
-      'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&w=1000&q=80',
+    src: 'https://wowslider.com/sliders/demo-77/data1/images/road220058.jpg',
     altText: 'Slide 2',
     caption: 'Slide 2',
   },
   {
-    src:
-      'https://mlodp7767kae.i.optimole.com/ZvkZDw-upSZOLoJ/w:1024/h:768/q:auto/https://kickstore.fr/wp-content/uploads/2019/06/lookup2.png',
+    src: 'https://wowslider.com/sliders/demo-77/data1/images/tuscany428041.jpg',
     altText: 'Slide 3',
     caption: 'Slide 3',
   },
