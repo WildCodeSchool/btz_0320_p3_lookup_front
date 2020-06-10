@@ -12,6 +12,8 @@ import { Link } from 'react-router-dom';
 import styles from './NavbarComp.module.css';
 
 const logo = require('./LogoLookUp.png');
+const facebook = require('./facebook.png');
+const linkedin = require('./linkedin.png');
 
 const MyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,10 +48,20 @@ const MyNavbar = () => {
             </NavItem>
           </Nav>
           <NavLink>
-            <Link to="/Contact">Contact</Link>
+            <Link
+              className={styles.contact}
+              style={{ color: 'inherit' }}
+              to="/Contact"
+            >
+              Contact
+            </Link>
           </NavLink>
-          <NavLink href="www.facebook.com">Facebook</NavLink>
-          <NavLink href="www.linkedin.com">LinkedIn</NavLink>
+          <NavLink href="www.facebook.com">
+            <img className={styles.facebook} src={facebook} alt="facebook" />
+          </NavLink>
+          <NavLink href="www.linkedin.com">
+            <img className={styles.linkedin} src={linkedin} alt="linkedin" />
+          </NavLink>
         </Collapse>
       </Navbar>
     </div>
