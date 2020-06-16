@@ -10,20 +10,38 @@ export default function MyFooter() {
   return (
     <footer>
       <Row>
-        <Col lg={{ size: 6, offset: 3 }}>
+        <Col lg={{ size: 8, offset: 2 }}>
           <Row className="d-flex align-items-center">
             <Col>
-              <img className={styles.partners} src={eticoop} alt="eticoop" />
+              <a
+                href="https://www.eticoop.fr/accueil.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className={styles.partners} src={eticoop} alt="eticoop" />
+              </a>
             </Col>
             <Col>
-              <img
-                className={styles.partners}
-                src={nvaquitaine}
-                alt="nvaquitaine"
-              />
+              <a
+                href="https://www.nouvelle-aquitaine.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className={styles.partners}
+                  src={nvaquitaine}
+                  alt="nvaquitaine"
+                />
+              </a>
             </Col>
             <Col>
-              <img className={styles.partners} src={bdea} alt="bdea" />
+              <a
+                href="https://www.bayonne.cci.fr/Finance-Gestion/Bureau-de-Developpement-Economique-et-Attractivite-Adour-BDEA-Adour.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img className={styles.partners} src={bdea} alt="bdea" />
+              </a>
             </Col>
           </Row>
         </Col>
