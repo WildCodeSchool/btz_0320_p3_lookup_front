@@ -19,7 +19,7 @@ const Catalogue = () => {
   return (
     <div className={styles.font}>
       <div>
-        <Card>
+        <Card className={styles.card}>
           <CardBody>
             <CardTitle>
               <h2>Découvrez</h2>
@@ -37,7 +37,7 @@ const Catalogue = () => {
         <Row>
           <CardGroup className={styles.catalogue}>
             <Col sm="4">
-              <Card>
+              <Card className={styles.card}>
                 <CardImg
                   className={styles.inclinaison}
                   src={inclinaison2}
@@ -46,7 +46,7 @@ const Catalogue = () => {
               </Card>
             </Col>
             <Col sm="4">
-              <Card>
+              <Card className={styles.card}>
                 <CardBody className={styles.gamme}>
                   <CardTitle>
                     <h3>Notre gamme de produits ergonomiques</h3>

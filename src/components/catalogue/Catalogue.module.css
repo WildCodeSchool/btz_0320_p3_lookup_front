@@ -1,6 +1,5 @@
 .font {
   font-family: 'Montserrat';
-  border: 0;
 }
 
 h2 {
@@ -53,4 +52,8 @@ h3 {
   padding: 0px;
   margin-left: 50px;
   z-index: 2;
+}
+
+.card {
+  border: 0 none !important;
 }
