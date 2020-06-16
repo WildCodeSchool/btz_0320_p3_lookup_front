@@ -1,7 +1,7 @@
 import React from 'react';
 import CarouselHome from './carouselhome/CarouselHome';
 import Catalogue from './catalogue/Catalogue';
-import PressRelation from './PressRelation';
+import PressRelation from './pressRelation/PressRelation';
 
 const Home = () => {
   return (
