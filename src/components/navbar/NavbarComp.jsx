@@ -32,7 +32,7 @@ const MyNavbar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <Link to="/product">
+              <Link to="/produits">
                 <NavLink>Produits</NavLink>
               </Link>
             </NavItem>

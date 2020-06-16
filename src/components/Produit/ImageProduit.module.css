@@ -1,0 +1,29 @@
+.container {
+  display: block;
+  margin: 0;
+}
+
+.image {
+  margin: 0 25vw;
+}
+
+.button {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(51, 117, 255, 0.938);
+  color: white;
+  font-size: 20px;
+  translate: 0 -240%;
+}
+
+@media screen and (max-width: 1200px) {
+  .button {
+    translate: 0 -150%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .button {
+    translate: 0 -50%;
+  }
+}
