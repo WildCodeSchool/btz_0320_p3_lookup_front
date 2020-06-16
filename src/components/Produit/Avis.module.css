@@ -1,0 +1,13 @@
+.quote1 {
+  position: absolute;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 100px;
+  translate: -110% -15%;
+}
+
+.quote2 {
+  position: absolute;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 100px;
+  translate: -110% -15%;
+}

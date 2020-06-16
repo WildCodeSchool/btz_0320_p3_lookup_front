@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import style from './Description.module.css';
 
 function Description(float, background) {
@@ -20,5 +21,10 @@ function Description(float, background) {
     </div>
   );
 }
+
+Description.prototype = {
+  float: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+};
 
 export default Description;

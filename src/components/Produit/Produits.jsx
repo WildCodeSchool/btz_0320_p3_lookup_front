@@ -2,6 +2,7 @@ import React from 'react';
 import Description from './Description';
 import ImageProduit from './ImageProduit';
 import style from './Produits.module.css';
+import Avis from './Avis';
 
 const Produits = () => {
   const right = {
@@ -20,6 +21,7 @@ const Produits = () => {
       <Description float={right} background={blueBackground} />
       <Description float={left} />
       <Description float={right} background={blueBackground} />
+      <Avis />
     </div>
   );
 };
