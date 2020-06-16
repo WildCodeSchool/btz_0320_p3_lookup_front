@@ -1,0 +1,19 @@
+footer {
+  background-color: #d8d4d4;
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  padding: 1em;
+}
+
+body {
+  margin: auto;
+  min-height: 100vh;
+}
+
+.partners {
+  width: 100%;
+  display: flex;
+  align-items: flex-end !important;
+}

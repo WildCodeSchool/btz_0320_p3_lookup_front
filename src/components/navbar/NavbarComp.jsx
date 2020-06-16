@@ -7,11 +7,13 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Col,
+  Row,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import styles from './NavbarComp.module.css';
 
-const logo = require('./LogoLookUp.png');
+const logo = require('./LookUp.png');
 const facebook = require('./facebook.png');
 const linkedin = require('./linkedin.png');
 
@@ -22,48 +24,62 @@ const MyNavbar = () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <Link to="/">
-          <NavbarBrand href="/">
-            <img className={styles.logo} src={logo} alt="logo" />
-          </NavbarBrand>
-        </Link>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link to="/product">
-                <NavLink>Produits</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/about">
-                <NavLink>A propos</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/services">
-                <NavLink>Services</NavLink>
-              </Link>
-            </NavItem>
-          </Nav>
-          <NavLink>
-            <Link
-              className={styles.contact}
-              style={{ color: 'inherit' }}
-              to="/Contact"
-            >
-              Contact
+      <Row>
+        <Navbar color="light" light expand="md">
+          <Col lg="2">
+            <Link to="/">
+              <NavbarBrand href="/">
+                <img className={styles.logo} src={logo} alt="logo" />
+              </NavbarBrand>
             </Link>
-          </NavLink>
-          <NavLink href="www.facebook.com">
-            <img className={styles.facebook} src={facebook} alt="facebook" />
-          </NavLink>
-          <NavLink href="www.linkedin.com">
-            <img className={styles.linkedin} src={linkedin} alt="linkedin" />
-          </NavLink>
-        </Collapse>
-      </Navbar>
+          </Col>
+          <Col lg="10">
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <Link to="/product">
+                    <NavLink>Produits</NavLink>
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link to="/about">
+                    <NavLink>A propos</NavLink>
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link to="/services">
+                    <NavLink>Services</NavLink>
+                  </Link>
+                </NavItem>
+              </Nav>
+              <NavLink>
+                <Link
+                  className={styles.contact}
+                  style={{ color: 'inherit' }}
+                  to="/Contact"
+                >
+                  Contact
+                </Link>
+              </NavLink>
+              <NavLink href="www.facebook.com">
+                <img
+                  className={styles.facebook}
+                  src={facebook}
+                  alt="facebook"
+                />
+              </NavLink>
+              <NavLink href="www.linkedin.com">
+                <img
+                  className={styles.linkedin}
+                  src={linkedin}
+                  alt="linkedin"
+                />
+              </NavLink>
+            </Collapse>
+          </Col>
+        </Navbar>
+      </Row>
     </div>
   );
 };
