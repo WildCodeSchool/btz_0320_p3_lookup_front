@@ -1,6 +1,17 @@
 .logo {
   width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 40%;
+  }
+
+  Nav {
+    display: flex;
+    flex-direction: row;
+  }
+}
 /* 
 .contact {
   color: 'inherit';

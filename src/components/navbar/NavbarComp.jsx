@@ -25,15 +25,15 @@ const MyNavbar = () => {
   return (
     <div>
       <Row>
-        <Navbar color="light" light expand="md">
-          <Col lg="2">
+        <Navbar className={styles.Nav} color="light" light expand="md">
+          <Col lg="2" md="3">
             <Link to="/">
               <NavbarBrand href="/">
                 <img className={styles.logo} src={logo} alt="logo" />
               </NavbarBrand>
             </Link>
           </Col>
-          <Col lg="10">
+          <Col lg="10" md="9">
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="mr-auto" navbar>
