@@ -4,7 +4,7 @@ import Home from './Home';
 import Produits from './Produits';
 import About from './about/About';
 import MyNavbar from './navbar/NavbarComp';
-import Services from './Services';
+import Services from './services/Services';
 import Contact from './Contact';
 import MyFooter from './footer/MyFooter';
 

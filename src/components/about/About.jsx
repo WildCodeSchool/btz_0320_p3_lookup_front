@@ -10,7 +10,7 @@ export default function About() {
       <img className={styles.img_about} src={antonin} alt="A propos" />
       {/* <h2> A propos</h2> */}
       <h3>Humain, Nature & Technologie </h3>
-      <p>
+      <p className={styles.center}>
         Mieux travailler en prenant en compte ces 3 paramètres fondamentaux dans
         une société qui se digitalise de plus en plus. <br /> Sensibiliser
         l'humain pour qu'il améliore sa relation avec les outils modernes tout
