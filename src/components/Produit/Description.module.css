@@ -1,0 +1,19 @@
+.container {
+  display: inline-block;
+  width: 95vw;
+  height: auto;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+.picture {
+  border-radius: 20px;
+}
+.title {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.text {
+  margin: 10px;
+}
