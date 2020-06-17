@@ -1,8 +1,4 @@
 .div {
-  background-image: url('./background_contact.jpg');
-  height: 80vh;
-}
-
-.row {
+  background: center / cover url('./background_contact.jpg');
   padding-top: 150px;
 }
