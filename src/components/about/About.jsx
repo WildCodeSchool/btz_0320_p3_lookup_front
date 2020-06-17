@@ -8,8 +8,7 @@ export default function About() {
   return (
     <div>
       <img className={styles.img_about} src={antonin} alt="A propos" />
-      {/* <h2> A propos</h2> */}
-      <h3>Humain, Nature & Technologie </h3>
+      <h3 className={styles.title_about}>Humain, Nature & Technologie </h3>
       <p>
         Mieux travailler en prenant en compte ces 3 paramètres fondamentaux dans
         une société qui se digitalise de plus en plus. <br /> Sensibiliser
