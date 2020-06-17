@@ -46,7 +46,7 @@ export default function MyFooter() {
           </Row>
         </Col>
       </Row>
-      <Row className="d-flex justify-content-center pt-3">
+      <Row className="d-flex justify-content-center text">
         Creé en 2020 par LookUp
       </Row>
     </footer>

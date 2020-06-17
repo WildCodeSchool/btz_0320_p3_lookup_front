@@ -25,7 +25,7 @@ const MyNavbar = () => {
   return (
     <div>
       <Row>
-        <Navbar className={styles.Nav} color="light" light expand="md">
+        <Navbar fixed className={styles.Nav} color="light" light expand="md">
           <Col lg="2" md="3">
             <Link to="/">
               <NavbarBrand href="/">

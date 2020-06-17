@@ -18,3 +18,7 @@ body {
   display: flex;
   align-items: flex-end !important;
 }
+
+.text {
+  color: white;
+}
