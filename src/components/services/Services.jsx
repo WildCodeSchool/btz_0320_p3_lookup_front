@@ -1,8 +1,8 @@
 /* eslint-disable no-irregular-whitespace */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import { Row, Col } from 'reactstrap';
-import style from './Services.modules.css';
+import { Row, Col, Button } from 'reactstrap';
+import styles from './Services.module.css';
 
 const conference = require('./conference.png');
 
@@ -11,22 +11,33 @@ export default function Services() {
     <div>
       <Row>
         <Col lg="6">
-          <p className={style.text}>
-            "L'impact des nouvelles technologies sur nos vies" Avec LookUp nous
-            souhaitons aller plus loin dans ce que l'on pourrait appeler le
-            digital en pleine conscience. ​ Nous proposons des interventions
-            auprès des écoles, universités et entreprises pour expliquer le
-            fonctionnement des nouvelles technologies et des réseaux sociaux
-            pour mieux les appréhender et revoir la place qu'ils occupent dans
-            notre quotidien.{' '}
+          <h1 className={styles.title1}>
+            {' '}
+            Ateliers & <br /> Conférences
+          </h1>
+          <h3 className={styles.title2}>
+            "L'impact des nouvelles technologies sur nos vies"
+          </h3>
+          <p className={styles.text}>
+            Avec LookUp nous souhaitons aller plus loin dans ce que l'on
+            pourrait appeler le digital en pleine conscience. <br />{' '}
           </p>
+
+          <p className={styles.text}>
+            Nous proposons des interventions auprès des écoles, universités et
+            entreprises pour expliquer le fonctionnement des nouvelles
+            technologies et des réseaux sociaux pour mieux les appréhender et
+            revoir la place qu'ils occupent dans notre quotidien.{' '}
+          </p>
+          <div>
+            <Button className={styles.contact}>Contactez-nous</Button>
+          </div>
         </Col>
         <Col lg="6">
           <img
-            className={style.conference}
+            className={styles.conference}
             src={conference}
             alt="présentation"
-            width="50%"
           />
         </Col>
       </Row>
