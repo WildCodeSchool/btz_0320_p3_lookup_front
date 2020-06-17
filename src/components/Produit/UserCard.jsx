@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import style from './UserCard.module.css';
 
-const UserCard = (name, position, text, photo) => {
+const UserCard = ({ name, position, text, photo }) => {
   return (
     <div className={style.container}>
       <img className={style.picture} src={photo} alt="user pic" />
@@ -14,7 +14,7 @@ const UserCard = (name, position, text, photo) => {
   );
 };
 
-UserCard.prototype = {
+UserCard.propTypes = {
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,

@@ -1,13 +1,43 @@
 .quote1 {
-  position: absolute;
+  float: right;
   font-family: 'Catamaran', sans-serif;
-  font-size: 100px;
-  translate: -110% -15%;
+  font-size: 120px;
+  translate: -500% 10%;
 }
 
 .quote2 {
-  position: absolute;
+  float: left;
   font-family: 'Catamaran', sans-serif;
-  font-size: 100px;
-  translate: -110% -15%;
+  font-size: 120px;
+  translate: 500% -40%;
+}
+
+@media screen and (max-width: 1500px) {
+  .quote1 {
+    translate: -400% 10%;
+  }
+
+  .quote2 {
+    translate: 400% -40%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .quote1 {
+    translate: -300%;
+  }
+
+  .quote2 {
+    translate: 300% -20%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .quote1 {
+    translate: -100%;
+  }
+
+  .quote2 {
+    translate: 100% -20%;
+  }
 }

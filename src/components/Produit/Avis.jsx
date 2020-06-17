@@ -36,7 +36,7 @@ const avis = [
 function Avis() {
   return (
     <div>
-      <span className={style.quote1}>mettre des quotes</span>
+      <span className={style.quote1}>&quot;</span>
       <Row>
         {avis.map((user) => (
           <Col xs={{ size: 3 }}>
@@ -49,7 +49,7 @@ function Avis() {
           </Col>
         ))}
       </Row>
-      <span className={style.quote2}>mettre des quotes</span>
+      <span className={style.quote2}>&quot;</span>
     </div>
   );
 }

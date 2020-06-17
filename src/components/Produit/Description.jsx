@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Description.module.css';
 
-function Description(float, background) {
+function Description({ float, background }) {
   return (
     <div className={style.container} style={background}>
       <img
@@ -22,7 +22,7 @@ function Description(float, background) {
   );
 }
 
-Description.prototype = {
+Description.propTypes = {
   float: PropTypes.string.isRequired,
   background: PropTypes.string.isRequired,
 };
