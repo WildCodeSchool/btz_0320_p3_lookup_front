@@ -1,0 +1,26 @@
+.div {
+  animation-duration: 1s;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translateX(0px) rotate(30deg);
+  }
+
+  60% {
+    transform: translateX(0px) rotate(0deg);
+  }
+
+  80% {
+    transform: translate(0px) rotate(-30deg);
+  }
+
+  to {
+    transform: translate(0px) rotate(0deg);
+  }
+}
