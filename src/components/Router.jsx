@@ -4,7 +4,7 @@ import Home from './Home';
 import About from './about/About';
 import MyNavbar from './navbar/NavbarComp';
 import Services from './Services';
-import Contact from './Contact';
+import Contact from '../contact/Contact';
 import MyFooter from './footer/MyFooter';
 import Produits from './Produit/Produits';
 
@@ -18,6 +18,7 @@ export default function App() {
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
         <Route exact path="/" component={Home} />
+        <Route path="/contact" component={Contact} />
       </Switch>
       <MyFooter />
     </Router>
