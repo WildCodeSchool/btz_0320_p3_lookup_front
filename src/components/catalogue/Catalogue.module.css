@@ -7,7 +7,7 @@ h2 {
   font-size: 70px;
 }
 
-h3 {
+.titreTrois {
   color: #e7742d;
   font-size: 40px;
 }
@@ -16,8 +16,8 @@ h3 {
   color: #3965a1;
   font-size: 40px;
   margin-bottom: 30px;
-  margin-left: 650px;
-  margin-right: 650px;
+  margin-left: 65px;
+  margin-right: 65px;
 }
 
 .gamme p {
@@ -29,7 +29,7 @@ h3 {
 .trouvez {
   background-color: #3965a1;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .gamme {

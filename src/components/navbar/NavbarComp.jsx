@@ -11,7 +11,7 @@ import {
   Row,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import styles from './NavbarComp.module.css';
+import style from './NavbarComp.module.css';
 
 const logo = require('./LookUp.png');
 const facebook = require('./facebook.png');
@@ -25,11 +25,17 @@ const MyNavbar = () => {
   return (
     <div>
       <Row>
-        <Navbar fixed className={styles.Nav} color="light" light expand="md">
+        <Navbar
+          fixed="top"
+          className={style.Nav}
+          color="light"
+          light
+          expand="md"
+        >
           <Col lg="2" md="3">
             <Link to="/">
               <NavbarBrand href="/">
-                <img className={styles.logo} src={logo} alt="logo" />
+                <img className={style.logo} src={logo} alt="logo" />
               </NavbarBrand>
             </Link>
           </Col>
@@ -55,7 +61,7 @@ const MyNavbar = () => {
               </Nav>
               <NavLink>
                 <Link
-                  className={styles.contact}
+                  className={style.contact}
                   style={{ color: 'inherit' }}
                   to="/Contact"
                 >
@@ -63,18 +69,10 @@ const MyNavbar = () => {
                 </Link>
               </NavLink>
               <NavLink href="www.facebook.com">
-                <img
-                  className={styles.facebook}
-                  src={facebook}
-                  alt="facebook"
-                />
+                <img className={style.facebook} src={facebook} alt="facebook" />
               </NavLink>
               <NavLink href="www.linkedin.com">
-                <img
-                  className={styles.linkedin}
-                  src={linkedin}
-                  alt="linkedin"
-                />
+                <img className={style.linkedin} src={linkedin} alt="linkedin" />
               </NavLink>
             </Collapse>
           </Col>
