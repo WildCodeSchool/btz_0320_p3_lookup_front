@@ -2,15 +2,15 @@ import React from 'react';
 import { Row, Col } from 'reactstrap';
 import styles from './Footer.module.css';
 
-const eticoop = require('./eticoop.png');
-const nvaquitaine = require('./nvaquitaine.png');
-const bdea = require('./bdea.png');
+const eticoop = require('./eticoopwhite.png');
+const nvaquitaine = require('./nvaqwhite.png');
+const bdea = require('./bdeawhite.png');
 
 export default function MyFooter() {
   return (
     <footer>
       <Row>
-        <Col lg={{ size: 8, offset: 2 }}>
+        <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row className="d-flex align-items-center">
             <Col>
               <a
