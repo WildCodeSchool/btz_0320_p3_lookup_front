@@ -1,4 +1,32 @@
 .div {
   background: center / cover url('./background_contact.jpg');
-  padding-top: 150px;
+  padding-top: 160px;
+  min-height: 70vh;
+}
+.col {
+  text-align: center;
+}
+.h1 {
+  color: #3f71a6;
+  font-size: 2.9vw;
+  margin-bottom: 15px;
+}
+
+.h3 {
+  color: #3f71a6;
+  font-size: 1.3vw;
+  margin: 0;
+}
+
+.p {
+  color: #dd7942;
+  font-size: 1.3vw;
+}
+
+.input {
+  margin-top: 20px;
+}
+.input button {
+  margin-top: 20px;
+  background-color: #dd7942;
 }
