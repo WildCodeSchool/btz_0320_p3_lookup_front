@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-import styles from './Services.modules.css';
+import style from './Services.modules.css';
 
 const conference = require('./conference.png');
 
@@ -11,7 +11,7 @@ export default function Services() {
     <div>
       <Row>
         <Col lg="6">
-          <p>
+          <p className={style.text}>
             "L'impact des nouvelles technologies sur nos vies" Avec LookUp nous
             souhaitons aller plus loin dans ce que l'on pourrait appeler le
             digital en pleine conscience. ​ Nous proposons des interventions
@@ -23,7 +23,7 @@ export default function Services() {
         </Col>
         <Col lg="6">
           <img
-            className={styles.conference}
+            className={style.conference}
             src={conference}
             alt="présentation"
             width="50%"

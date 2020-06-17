@@ -6,11 +6,11 @@ const antonin = require('./Antonin.jpg');
 
 export default function About() {
   return (
-    <div>
+    <div className={styles.center}>
       <img className={styles.img_about} src={antonin} alt="A propos" />
       {/* <h2> A propos</h2> */}
       <h3>Humain, Nature & Technologie </h3>
-      <p className={styles.center}>
+      <p>
         Mieux travailler en prenant en compte ces 3 paramètres fondamentaux dans
         une société qui se digitalise de plus en plus. <br /> Sensibiliser
         l'humain pour qu'il améliore sa relation avec les outils modernes tout
