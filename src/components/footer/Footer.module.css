@@ -19,6 +19,6 @@ body {
   align-items: flex-end !important;
 }
 
-.text {
-  color: white;
+.footertext {
+  color: white !important;
 }
