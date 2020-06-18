@@ -22,7 +22,7 @@ const Catalogue = () => {
         <Card className={styles.card}>
           <CardBody>
             <CardTitle>
-              <h2>Découvrez</h2>
+              <h2 className={styles.title2}>Découvrez</h2>
             </CardTitle>
             <CardText>
               <p className={styles.subtitle}>
@@ -49,11 +49,13 @@ const Catalogue = () => {
               <Card className={styles.card}>
                 <CardBody className={styles.gamme}>
                   <CardTitle>
-                    <h3>Notre gamme de produits ergonomiques</h3>
+                    <h3 classNAme={styles.title3}>
+                      Notre gamme de produits ergonomiques
+                    </h3>
                   </CardTitle>
                   <CardText>
                     {' '}
-                    <p>
+                    <p className={styles.subtitle2}>
                       Proposer des produits accessibles et adaptés à tous les
                       usages permettant d'améliorer simplement les conditions de
                       travail de vos collaborateurs.
