@@ -1,27 +1,25 @@
-.font {
-  font-family: 'Montserrat';
-}
-
 .img_about {
   margin-top: 30px;
 
   width: 20%;
   height: 20%;
-  /* border-radius: 50%; */
   box-shadow: 30px 30px 0px #d8d4d4;
 }
 
 .title_about {
   text-align: center !important;
+}
 
+h3 {
+  text-align: center !important;
   color: #e7742d;
   font-size: 30px;
   margin-top: 50px;
   margin-bottom: 40px;
 }
 
-p {
-  text-align: center;
+.center {
+  text-align: center !important;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;

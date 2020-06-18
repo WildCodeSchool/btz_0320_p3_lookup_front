@@ -6,7 +6,7 @@ const antonin = require('./Antonin.jpg');
 
 export default function About() {
   return (
-    <div>
+    <div className={styles.center}>
       <img className={styles.img_about} src={antonin} alt="A propos" />
       <h3 className={styles.title_about}>Humain, Nature & Technologie </h3>
       <p>
