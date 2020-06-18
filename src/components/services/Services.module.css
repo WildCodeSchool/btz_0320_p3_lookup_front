@@ -28,18 +28,17 @@
 }
 
 .conference {
-      width: 90%;
-      margin-bottom: 30px;
-      margin-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      display: flex;
-      justify-content: center;
+  width: 90%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
 
-  }
-
-  .contact {
-    background-color: #3965a1;
-    color: white;
-    font-size: 25px;
-  }
+.contact {
+  background-color: #3965a1;
+  color: white;
+  font-size: 25px;
+}
