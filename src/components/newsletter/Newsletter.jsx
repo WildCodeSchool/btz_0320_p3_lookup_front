@@ -19,7 +19,8 @@ const Newsletter = () => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Row>
+        <hr />
+        <Row className={styles.newsForm}>
           <Col>
             <p>S&apos;inscire à la newsletter</p>
           </Col>
@@ -41,8 +42,8 @@ const Newsletter = () => {
           {emails.map((email) => (
             <p>{email}</p>
           ))}
-          ;
         </Row>
+        <hr />
       </Form>
     </>
   );

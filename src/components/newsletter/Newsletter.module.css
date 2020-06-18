@@ -1,3 +1,11 @@
 .newsButton {
   background-color: #3965a1;
 }
+
+hr {
+  width: 95%;
+}
+
+.newsForm {
+  margin-top: 40px;
+}
