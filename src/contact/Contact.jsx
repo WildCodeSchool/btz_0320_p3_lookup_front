@@ -16,10 +16,10 @@ export default function Contact() {
     <Container fluid className={styles.div}>
       <Row className="d-flex align-items-center justify-content-center">
         <Col className={styles.col}>
-          <h1 className={styles.h1}>Vous souhaitez nous contacter ?</h1>
-          <p className={styles.h3}>Société Look up</p>
-          <p className={styles.p}>lookup-france@protonmail.com</p>
-          <p className={styles.p}>+33 (0) 6 88 61 93 53</p>
+          <h1 className={styles.title1}>Vous souhaitez nous contacter ?</h1>
+          <p className={styles.title3}>Société Look up</p>
+          <p className={styles.text}>lookup-france@protonmail.com</p>
+          <p className={styles.text}>+33 (0) 6 88 61 93 53</p>
         </Col>
         <Col>
           <Form className="mr-3">

@@ -19,7 +19,7 @@ const Newsletter = () => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <hr />
+        <hr className={styles.hr} />
         <Row className={styles.newsForm}>
           <Col md="12" lg="4">
             <p>S&apos;inscire à la newsletter</p>

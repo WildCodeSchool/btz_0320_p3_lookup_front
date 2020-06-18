@@ -35,7 +35,7 @@ const avis = [
 
 function Avis() {
   return (
-    <div>
+    <div className={style.container}>
       <span className={style.quote1}>&quot;</span>
       <Row>
         {avis.map((user) => (

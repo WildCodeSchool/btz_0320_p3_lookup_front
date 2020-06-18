@@ -62,14 +62,20 @@ const MyNavbar = () => {
                   Contact
                 </Link>
               </NavLink>
-              <NavLink href="www.facebook.com">
+              <NavLink
+                href="https://www.facebook.com/LookUp.FR/"
+                target="_blank"
+              >
                 <img
                   className={styles.facebook}
                   src={facebook}
                   alt="facebook"
                 />
               </NavLink>
-              <NavLink href="www.linkedin.com">
+              <NavLink
+                href="https://www.linkedin.com/company/lookup-fr/"
+                target="_blank"
+              >
                 <img
                   className={styles.linkedin}
                   src={linkedin}

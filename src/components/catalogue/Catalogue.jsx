@@ -49,7 +49,7 @@ const Catalogue = () => {
               <Card className={styles.card}>
                 <CardBody className={styles.gamme}>
                   <CardTitle>
-                    <h3 classNAme={styles.title3}>
+                    <h3 className={styles.title3}>
                       Notre gamme de produits ergonomiques
                     </h3>
                   </CardTitle>
