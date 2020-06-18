@@ -21,10 +21,10 @@ const Newsletter = () => {
       <Form onSubmit={handleSubmit}>
         <hr />
         <Row className={styles.newsForm}>
-          <Col>
+          <Col md="12" lg="4">
             <p>S&apos;inscire à la newsletter</p>
           </Col>
-          <Col>
+          <Col lg="4" md="6" sm="8" xs="10">
             <Input
               type="text"
               value={input}
@@ -32,7 +32,7 @@ const Newsletter = () => {
               onChange={(e) => setInput(e.target.value)}
             />
           </Col>
-          <Col>
+          <Col lg="4" md="12">
             <Button type="submit" className={styles.newsButton}>
               Envoyer
             </Button>
@@ -43,7 +43,6 @@ const Newsletter = () => {
             <p>{email}</p>
           ))}
         </Row>
-        <hr />
       </Form>
     </>
   );

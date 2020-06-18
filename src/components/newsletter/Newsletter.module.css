@@ -8,4 +8,12 @@ hr {
 
 .newsForm {
   margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .newsButton {
+    margin-top: 20px;
+  }
 }
