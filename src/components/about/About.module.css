@@ -1,0 +1,24 @@
+.img_about {
+  margin-top: 30px;
+
+  width: 20%;
+  height: 20%;
+  box-shadow: 30px 30px 0px #d8d4d4;
+}
+
+.title_about {
+  text-align: center !important;
+  color: #e7742d;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.center {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #3965a1;
+}
