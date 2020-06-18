@@ -1,6 +1,25 @@
 .logo {
   width: 100%;
 }
+
+.Nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 3px 5px rgb(105, 105, 105, 0.25);
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 40%;
+  }
+
+  Nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+  }
+}
 /* 
 .contact {
   color: 'inherit';

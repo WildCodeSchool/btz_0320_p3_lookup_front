@@ -1,0 +1,28 @@
+.container {
+  display: block;
+  margin: 0;
+}
+
+.image {
+  margin: 0 25vw;
+}
+
+.imgModal {
+  float: left;
+}
+
+.button {
+  translate: 0 -240%;
+}
+
+@media screen and (max-width: 1200px) {
+  .button {
+    translate: 0 -150%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .button {
+    translate: 0 -50%;
+  }
+}

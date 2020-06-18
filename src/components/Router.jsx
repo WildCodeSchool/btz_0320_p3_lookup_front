@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
-import Produits from './Produits';
-import About from './About';
+import About from './about/About';
 import MyNavbar from './navbar/NavbarComp';
 import Services from './Services';
 import Contact from './Contact';
+import MyFooter from './footer/MyFooter';
+import Produits from './Produit/Produits';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/contact" component={Contact} />
         <Route exact path="/" component={Home} />
       </Switch>
+      <MyFooter />
     </Router>
   );
 }
