@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import About from './about/About';
 import MyNavbar from './navbar/NavbarComp';
+import Contact from '../contact/Contact';
 import Services from './services/Services';
-import Contact from './Contact';
 import MyFooter from './footer/MyFooter';
 import Produits from './Produit/Produits';
 
@@ -18,6 +18,7 @@ export default function App() {
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
         <Route exact path="/" component={Home} />
+        <Route path="/contact" component={Contact} />
       </Switch>
       <MyFooter />
     </Router>
