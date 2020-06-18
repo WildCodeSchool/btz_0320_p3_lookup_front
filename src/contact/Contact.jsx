@@ -16,7 +16,7 @@ export default function Contact() {
     <Container fluid className={styles.div}>
       <Row className="d-flex align-items-center justify-content-center">
         <Col className={styles.col}>
-          <h1 className={styles.h1}>Vous souhaitez nous contactez ?</h1>
+          <h1 className={styles.h1}>Vous souhaitez nous contacter ?</h1>
           <p className={styles.h3}>Société Look up</p>
           <p className={styles.p}>lookup-france@protonmail.com</p>
           <p className={styles.p}>+33 (0) 6 88 61 93 53</p>
