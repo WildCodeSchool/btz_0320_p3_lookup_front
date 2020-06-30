@@ -1,26 +1,18 @@
-.div {
-  animation-duration: 1s;
-  animation-name: rotate;
-  animation-iteration-count: infinite;
+.rotate {
+  margin-top: 120px;
+  animation: rotation 2s infinite linear;
 }
 
-@keyframes rotate {
+@keyframes rotation {
   from {
-    transform: translateX(0px);
+    -webkit-transform-origin: bottom;
+    -webkit-transform: rotate(0deg);
   }
-  30% {
-    transform: translateX(0px) rotate(30deg);
-  }
-
-  60% {
-    transform: translateX(0px) rotate(0deg);
-  }
-
-  80% {
-    transform: translate(0px) rotate(-30deg);
-  }
-
   to {
-    transform: translate(0px) rotate(0deg);
+    -webkit-transform: rotate(360deg);
   }
+}
+
+.logo {
+  margin-top: 120px;
 }

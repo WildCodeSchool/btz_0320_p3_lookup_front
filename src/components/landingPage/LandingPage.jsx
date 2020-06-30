@@ -8,14 +8,19 @@ export default function LandingPage() {
     <div>
       <div>
         <img
-          className={styles.div}
+          className={styles.rotate}
           src={LogoP}
           style={{ width: '10%' }}
           alt=""
         />
       </div>
       <div>
-        <img src={Logo} style={{ width: '30%' }} alt="" />
+        <img
+          className={styles.logo}
+          src={Logo}
+          style={{ width: '30%' }}
+          alt=""
+        />
       </div>
     </div>
   );
