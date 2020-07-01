@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Fade from 'react-reveal/Fade';
 import Router from './components/Router';
+import LandingPage from './components/landingPage/LandingPage';
 
 function App() {
-  // const [count, setCount] = useState('');
+  const [count, setCount] = useState(false);
+  const timer = () => setTimeout(setCount(true), 3000);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setCount('Timeout called!');
-  //   }, 1000);
-  //   console.log(timer);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    timer();
+  }, []);
+
+  if (count) {
+    return (
+      <Fade>
+        <LandingPage />
+      </Fade>
+    );
+  }
 
   return (
     <div className="App">
