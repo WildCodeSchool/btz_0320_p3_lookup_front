@@ -2,12 +2,12 @@
   font-family: 'Montserrat';
 }
 
-h2 {
+.title2 {
   color: #e7742d;
   font-size: 70px;
 }
 
-h3 {
+.title3 {
   color: #e7742d;
   font-size: 40px;
 }
@@ -16,11 +16,11 @@ h3 {
   color: #3965a1;
   font-size: 40px;
   margin-bottom: 30px;
-  margin-left: 650px;
-  margin-right: 650px;
+  margin-left: 65px;
+  margin-right: 65px;
 }
 
-.gamme p {
+.subtitle2 {
   color: #3965a1;
   font-size: 25px;
   margin-bottom: 30px;
@@ -35,10 +35,7 @@ h3 {
 .gamme {
   background-color: #e2f2f2;
   margin-top: 70px;
-  padding-left: 70px;
-  padding-right: 40px;
-  padding-bottom: 60px;
-  padding-top: 40px;
+  padding: 40px 40px 60px 70px;
   z-index: 1;
 }
 
