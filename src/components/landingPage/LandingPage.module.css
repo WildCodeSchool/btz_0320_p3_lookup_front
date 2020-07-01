@@ -1,6 +1,13 @@
 .rotate {
-  margin-top: 120px;
-  animation: rotation 2s linear;
+  margin-top: 20vh;
+  margin-left: 45vw;
+  animation: rotation 1s linear;
+}
+
+.logo {
+  margin-top: 3vh;
+  margin-left: 35vw;
+  /* animation: slideOut 1.5s linear; */
 }
 
 @keyframes rotation {
@@ -10,9 +17,16 @@
   }
   to {
     -webkit-transform: rotate(0deg);
+    /* -webkit-transform: translate(-200%, -120%); */
   }
 }
 
-.logo {
-  margin-top: 120px;
+@keyframes slideOut {
+  from {
+    -webkit-transform-origin: bottom;
+    -webkit-transform: translateX(0%);
+  }
+  to {
+    -webkit-transform: translate(-120%, -240%);
+  }
 }

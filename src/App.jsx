@@ -6,13 +6,14 @@ import LandingPage from './components/landingPage/LandingPage';
 
 function App() {
   const [count, setCount] = useState(false);
-  const timer = () => setTimeout(setCount(true), 3000);
+  const timer = setTimeout(() => {
+    setCount(true);
+  }, 1200);
 
   useEffect(() => {
     timer();
   }, []);
-
-  if (count) {
+  if (!count) {
     return (
       <Fade>
         <LandingPage />
@@ -22,7 +23,9 @@ function App() {
 
   return (
     <div className="App">
-      <Router />
+      <Fade>
+        <Router />
+      </Fade>
     </div>
   );
 }
