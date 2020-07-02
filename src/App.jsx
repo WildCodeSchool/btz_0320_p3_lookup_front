@@ -6,12 +6,11 @@ import LandingPage from './components/landingPage/LandingPage';
 
 function App() {
   const [count, setCount] = useState(false);
-  const timer = setTimeout(() => {
-    setCount(true);
-  }, 1200);
 
   useEffect(() => {
-    timer();
+    setTimeout(() => {
+      setCount(true);
+    }, 1200);
   }, []);
   if (!count) {
     return (
