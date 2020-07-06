@@ -62,6 +62,16 @@ const MyNavbar = () => {
                   Contact
                 </Link>
               </NavLink>
+
+              <NavLink>
+                <Link
+                  className={styles.login}
+                  style={{ color: 'inherit' }}
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </NavLink>
               <NavLink
                 href="https://www.facebook.com/LookUp.FR/"
                 target="_blank"

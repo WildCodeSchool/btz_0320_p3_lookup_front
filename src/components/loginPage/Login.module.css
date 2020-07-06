@@ -1,0 +1,27 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+    font-family: 'Montserrat';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+.Login .submit {
+  background-color: #e7742d;
+  font-size: 25px;
+  border: none;
+}
+
+.size {
+  font-size: 25px;
+}
+
+.Login .input {
+  background-color: #f8f9fa;
+}

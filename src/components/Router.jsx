@@ -7,6 +7,7 @@ import MyNavbar from './navbar/NavbarComp';
 import Contact from '../contact/Contact';
 import Services from './services/Services';
 import MyFooter from './footer/MyFooter';
+import Login from './loginPage/Login';
 
 export default function MyRouter() {
   return (
@@ -17,6 +18,7 @@ export default function MyRouter() {
         <Route path="/product" component={Produits} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
         <Route exact path="/" component={Home} />
       </Switch>
       <MyFooter />
