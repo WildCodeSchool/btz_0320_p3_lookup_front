@@ -1,0 +1,21 @@
+.wrapper {
+  position: absolute;
+  margin-top: 40vh;
+  margin-left: 20vw;
+}
+
+.rotate {
+  float: right;
+  translate: -410%;
+  animation: rotation 1s linear;
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform-origin: bottom;
+    -webkit-transform: rotate(90deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+  }
+}
