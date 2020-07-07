@@ -5,8 +5,6 @@
 }
 
 .rotate {
-  float: right;
-  translate: -410%;
   animation: rotation 1s linear;
 }
 

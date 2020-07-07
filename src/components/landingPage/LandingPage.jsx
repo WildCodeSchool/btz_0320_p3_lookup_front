@@ -9,15 +9,15 @@ export default function LandingPage() {
     <Container>
       <div className={styles.wrapper}>
         <img
-          className={styles.rotate}
-          src={LogoP}
-          style={{ width: '14%' }}
-          alt=""
-        />
-        <img
           className={styles.logo}
           src={Logo}
           style={{ width: '30%' }}
+          alt=""
+        />
+        <img
+          className={styles.rotate}
+          src={LogoP}
+          style={{ width: '14%' }}
           alt=""
         />
       </div>
