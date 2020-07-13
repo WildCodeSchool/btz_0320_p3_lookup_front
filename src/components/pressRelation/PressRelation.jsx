@@ -6,6 +6,8 @@ import Press from './Press';
 export default function PressRelation() {
   const [isLoading, setIsLoading] = useState(true);
   const [presse, setPresse] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState();
 
   useEffect(() => {
     const getPress = async () => {
@@ -14,8 +16,8 @@ export default function PressRelation() {
           'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/press'
         );
         setPresse(res.data);
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        setError(err);
       } finally {
         setIsLoading(false);
       }

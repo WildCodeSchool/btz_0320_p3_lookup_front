@@ -31,6 +31,8 @@ const CarouselHome = () => {
   const [isLoading, setisLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState();
 
   useEffect(() => {
     const getCarousels = async () => {
@@ -39,8 +41,8 @@ const CarouselHome = () => {
           'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/carousels/'
         );
         setCarousels(res.data);
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        setError(err);
       } finally {
         setisLoading(false);
       }
