@@ -1,41 +1,56 @@
-/* eslint-disable no-irregular-whitespace */
-/* eslint-disable react/no-unescaped-entities */
-import React from 'react';
-import { Row, Col, Button } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Row, Col, Button, Spinner } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 import styles from './Services.module.css';
 
-const conference = require('./conference.png');
-
 export default function Services() {
+  const [services, setServices] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    const getServices = async () => {
+      try {
+        const res = await axios.get(
+          'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/services'
+        );
+        setServices(res.data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getServices();
+  }, []);
+
+  if (isLoading) {
+    return <Spinner color="info" />;
+  }
+
   return (
     <Row>
-      <Col lg="6">
-        <h1 className={styles.title1}>
-          {' '}
-          Ateliers & <br /> Conférences
-        </h1>
-        <h3 className={styles.title2}>
-          "L'impact des nouvelles technologies sur nos vies"
-        </h3>
-        <p className={styles.text}>
-          Avec LookUp nous souhaitons aller plus loin dans ce que l'on pourrait
-          appeler le digital en pleine conscience. <br />{' '}
-        </p>
-        <p className={styles.text}>
-          Nous proposons des interventions auprès des écoles, universités et
-          entreprises pour expliquer le fonctionnement des nouvelles
-          technologies et des réseaux sociaux pour mieux les appréhender et
-          revoir la place qu'ils occupent dans notre quotidien.{' '}
-        </p>
-        <Button className={styles.contact}>Contactez-nous</Button>
-      </Col>
-      <Col lg="6">
-        <img
-          className={styles.conference}
-          src={conference}
-          alt="présentation"
-        />
-      </Col>
+      {services.map((i) => (
+        <>
+          <Col lg="6">
+            <h1 className={styles.title1}> {i.title}</h1>
+            <p>{ReactHtmlParser(i.description)}</p>
+            <Link to="/contact">
+              <Button className={styles.contact}>Contactez-nous</Button>
+            </Link>
+          </Col>
+          <Col lg="6">
+            <img
+              className={styles.conference}
+              src={i.logo}
+              alt="présentation"
+            />
+          </Col>
+        </>
+      ))}
     </Row>
   );
 }
