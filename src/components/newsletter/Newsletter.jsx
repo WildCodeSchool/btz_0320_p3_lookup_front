@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Input, Col, Row } from 'reactstrap';
+import Axios from 'axios';
 import styles from './Newsletter.module.css';
 
 const Newsletter = () => {
@@ -11,8 +12,17 @@ const Newsletter = () => {
     setEmails(newEmails);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      Axios.post(
+        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients/',
+        emails
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
     addEmail();
     setInput('');
   };
