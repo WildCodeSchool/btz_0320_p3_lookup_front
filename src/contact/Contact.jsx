@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Row,
@@ -7,19 +7,44 @@ import {
   Input,
   Form,
   Button,
+  Spinner,
 } from 'reactstrap';
-
+import axios from 'axios';
 import styles from './contact.module.css';
 
 export default function Contact() {
+  const [lookup, setLookup] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    const getLookup = async () => {
+      try {
+        const res = await axios.get(
+          'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/admin/39e68df2-1f3f-42a6-9c73-1826db3ad3f3'
+        );
+        setLookup(res.data);
+      } catch (err) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getLookup();
+  }, []);
+
+  if (isLoading) {
+    return <Spinner color="info" />;
+  }
+
   return (
     <Container fluid className={styles.div}>
       <Row className="d-flex align-items-center justify-content-center">
         <Col className={styles.col}>
           <h1 className={styles.title1}>Vous souhaitez nous contacter ?</h1>
-          <p className={styles.title3}>Société Look up</p>
-          <p className={styles.text}>lookup-france@protonmail.com</p>
-          <p className={styles.text}>+33 (0) 6 88 61 93 53</p>
+          <p className={styles.title3}>Société {lookup.companyName}</p>
+          <p className={styles.text}>{lookup.email}</p>
+          <p className={styles.text}>{lookup.phone}</p>
         </Col>
         <Col>
           <Form className="mr-3">
