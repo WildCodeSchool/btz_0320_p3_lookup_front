@@ -12,27 +12,22 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
+  Container,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import Image from './img/support-full.png';
 import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
 
-function ImageProduit({ buttonLabel }) {
+function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
   const reduction = '20%';
   return (
-    <div className={style.container}>
-      <img
-        className={style.image}
-        src={Image}
-        alt="une description"
-        width="50%"
-      />
+    <Container>
+      <img src={picture} alt={name} width="50%" />
       <div>
-        <Button className={style.button} color="danger" onClick={toggle}>
+        <Button color="danger" onClick={toggle}>
           {buttonLabel}
         </Button>
         <Modal isOpen={modal} toggle={toggle} className="modal-lg">
@@ -44,12 +39,7 @@ function ImageProduit({ buttonLabel }) {
                 src={ImageSmall}
                 alt="une description"
               />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                necessitatibus alias, soluta ab nesciunt temporibus maxime
-                adipisci dolore dignissimos accusantium. Nihil quibusdam dolor
-                ipsum? Dolores quis laboriosam magni quae ratione?
-              </p>
+              <p>{description}</p>
             </div>
             <InputGroup>
               <InputGroupAddon addonType="prepend">
@@ -114,12 +104,15 @@ function ImageProduit({ buttonLabel }) {
           </ModalFooter>
         </Modal>
       </div>
-    </div>
+    </Container>
   );
 }
 
 ImageProduit.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default ImageProduit;
