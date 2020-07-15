@@ -10,8 +10,8 @@ import {
   Spinner,
 } from 'reactstrap';
 import Axios from 'axios';
-import styles from './contact.module.css';
 import { toast } from 'react-toastify';
+import styles from './contact.module.css';
 
 export default function Contact() {
   const [lookup, setLookup] = useState([]);
@@ -74,12 +74,11 @@ export default function Contact() {
         <p><b>MESSAGE:</b>
  ${clientMail.message}</p>`,
         subject: `Mail de contact > Lookup.fr de MR/Mme ${clientMail.surname}  ${clientMail.name}`,
-        emailTo: 'marco.sch4064@gmail.com', //Email antonin
+        emailTo: 'marco.sch4064@gmail.com',
       });
       notifySuccess();
     } catch (err) {
       notifyError();
-      console.log(err);
     }
   };
 
