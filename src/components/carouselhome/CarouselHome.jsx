@@ -1,42 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
+  Spinner,
 } from 'reactstrap';
+import axios from 'axios';
 import styles from './CarouselHome.module.css';
 
-const slide1 = require('./Inclinaison1.jpg');
-const slide2 = require('./Produit3.jpg');
-const slide3 = require('./Support1.jpg');
+// const slide1 = require('./Inclinaison1.jpg');
+// const slide2 = require('./Produit3.jpg');
+// const slide3 = require('./Support1.jpg');
 
-const items = [
-  {
-    src: slide1,
-  },
-  {
-    src: slide2,
-  },
-  {
-    src: slide3,
-  },
-];
+// const items = [
+//   {
+//     src: slide1,
+//   },
+//   {
+//     src: slide2,
+//   },
+//   {
+//     src: slide3,
+//   },
+// ];
 
 const CarouselHome = () => {
+  const [carousels, setCarousels] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    const getCarousels = async () => {
+      try {
+        const res = await axios.get(
+          'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/carousels/'
+        );
+        setCarousels(res.data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setisLoading(false);
+      }
+    };
+    getCarousels();
+  }, []);
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex =
+      activeIndex === carousels.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    const nextIndex =
+      activeIndex === 0 ? carousels.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   };
 
@@ -45,27 +69,30 @@ const CarouselHome = () => {
     setActiveIndex(newIndex);
   };
 
-  const slides = items.map((item) => {
+  const slides = carousels.map((item) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={item.picture}
         className={styles.carouselitem}
       >
-        <img src={item.src} alt={item.altText} />
+        <img src={item.picture} alt={item.altText} />
         <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
+        // captionText={item.description}
+        // captionHeader={item.title}
         />
       </CarouselItem>
     );
   });
 
+  if (isLoading) {
+    return <Spinner color="info" />;
+  }
   return (
     <Carousel activeIndex={activeIndex} next={next} previous={previous}>
       <CarouselIndicators
-        items={items}
+        items={carousels}
         activeIndex={activeIndex}
         onClickHandler={goToIndex}
       />

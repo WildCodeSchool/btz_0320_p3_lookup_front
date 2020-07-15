@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 import LogoP from './Logo-lookup-oiseau.png';
-import Logo from './LookU.png';
 import styles from './LandingPage.module.css';
 
 export default function LandingPage() {
@@ -12,12 +11,6 @@ export default function LandingPage() {
           className={styles.rotate}
           src={LogoP}
           style={{ width: '14%' }}
-          alt=""
-        />
-        <img
-          className={styles.logo}
-          src={Logo}
-          style={{ width: '30%' }}
           alt=""
         />
       </div>

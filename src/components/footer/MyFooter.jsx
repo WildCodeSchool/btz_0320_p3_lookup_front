@@ -1,48 +1,50 @@
-import React from 'react';
-import { Row, Col } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Row, Col, Spinner } from 'reactstrap';
+import axios from 'axios';
 import styles from './Footer.module.css';
 
-const eticoop = require('./eticoopwhite.png');
-const nvaquitaine = require('./nvaqwhite.png');
-const bdea = require('./bdeawhite.png');
-
 export default function MyFooter() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [partner, setPartner] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    const getPartner = async () => {
+      try {
+        const res = await axios.get(
+          'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/partenaires'
+        );
+        setPartner(res.data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getPartner();
+  }, []);
+
+  if (isLoading) {
+    return <Spinner color="info" />;
+  }
+
   return (
     <footer>
       <Row>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row className="d-flex align-items-center">
-            <Col>
-              <a
-                href="https://www.eticoop.fr/accueil.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img className={styles.partners} src={eticoop} alt="eticoop" />
-              </a>
-            </Col>
-            <Col>
-              <a
-                href="https://www.nouvelle-aquitaine.fr/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  className={styles.partners}
-                  src={nvaquitaine}
-                  alt="nvaquitaine"
-                />
-              </a>
-            </Col>
-            <Col>
-              <a
-                href="https://www.bayonne.cci.fr/Finance-Gestion/Bureau-de-Developpement-Economique-et-Attractivite-Adour-BDEA-Adour.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img className={styles.partners} src={bdea} alt="bdea" />
-              </a>
-            </Col>
+            {partner.map((i) => (
+              <Col>
+                <a href={i.title} target="_blank" rel="noopener noreferrer">
+                  <img
+                    className={styles.partners}
+                    src={i.logo}
+                    alt={i.description}
+                  />
+                </a>
+              </Col>
+            ))}
           </Row>
         </Col>
       </Row>
