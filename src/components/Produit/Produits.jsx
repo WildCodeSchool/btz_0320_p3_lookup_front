@@ -23,7 +23,7 @@ const Produits = () => {
   return (
     <div>
       <ImageProduit buttonLabel="Demande de devis" />
-      <h1 className={style.title}>JE SUIS LE TITRE</h1>
+      <h1 className={style.title}>PRODUITS DISPONIBLES</h1>
       <Description float={right} background={blueBackground} />
       <Description float={left} background={whiteBackground} />
       <Description float={right} background={blueBackground} />
