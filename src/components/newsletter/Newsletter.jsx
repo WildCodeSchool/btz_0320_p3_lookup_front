@@ -9,10 +9,10 @@ toast.configure();
 
 const defaultClient = {
   companyName: 'Newsletter',
-  streetNumber: '-',
+  streetNumber: 768,
   streetName: '-',
   city: '-',
-  postalCode: '-',
+  postalCode: 868,
   email: '',
   phone: '-',
   siret: '-',
@@ -36,9 +36,8 @@ const Newsletter = () => {
   const postNewsletter = async (e) => {
     e.preventDefault();
     try {
-      //   console.log(input);
-      Axios.post(
-        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients',
+      await Axios.post(
+        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients/',
         input
       );
     } catch (err) {
