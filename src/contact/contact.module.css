@@ -26,7 +26,14 @@
 .input {
   margin-top: 20px;
 }
+
 .input button {
   margin-top: 20px;
+  background-color: #dd7942;
+  border: none;
+}
+
+.input button:hover {
+  opacity: 0.8;
   background-color: #dd7942;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import Description from './Description';
 import ImageProduit from './ImageProduit';
 import style from './Produits.module.css';
@@ -22,8 +23,9 @@ const Produits = () => {
   };
   return (
     <div>
-      <ImageProduit buttonLabel="Demande de devis" />
-      <h1 className={style.title}>JE SUIS LE TITRE</h1>
+      <ImageProduit />
+      <Button className={style.demande}> Demande de devis</Button>
+      <h1 className={style.title}>Nos produits disponibles</h1>
       <Description float={right} background={blueBackground} />
       <Description float={left} background={whiteBackground} />
       <Description float={right} background={blueBackground} />

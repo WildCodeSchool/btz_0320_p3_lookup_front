@@ -1,5 +1,5 @@
 .font {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', 'sans-serif';
 }
 
 .title2 {
@@ -30,6 +30,11 @@
   background-color: #3965a1;
   color: white;
   font-size: 25px;
+}
+
+.trouvez:hover {
+  opacity: 0.8;
+  background-color: #3965a1;
 }
 
 .gamme {
