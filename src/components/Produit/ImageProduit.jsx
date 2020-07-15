@@ -16,17 +16,23 @@ import {
 } from 'reactstrap';
 import { useForm } from 'react-hook-form';
 import Axios from 'axios';
-import PropTypes from 'prop-types';
+import PropTypes, { checkPropTypes } from 'prop-types';
+import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
+
 import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
+import UserCard from './UserCard';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const { register } = useForm();
-
+  const [emailMessage, setEmailMessage]= useState({})
   const [clients, setClients] = useState({});
+  const { register } = useForm();
+  
+
 
   const postClient = async (e) => {
     e.preventDefault();
@@ -35,8 +41,16 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients`,
         clients
       );
+      // await setEmailMessage(clients,message)
+      // console.log(emailMessage)
+      await Axios.post('http://localhost:8000/sendMail', {
+        message,
+        subject: 'Devis demandé sur LookUp.fr',
+        emailTo: 'doudou6500@gmail.com', //Email antonin 
+      });
       setLoading(true);
       // notifySuccess();
+
       console.log('ok');
     } catch (err) {
       // notifyError();
@@ -191,7 +205,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               <FormGroup>
                 <Label for="phone">Téléphone</Label>
                 <Input
-                  type="tel"
+                  type="text"
                   name="phone"
                   ref={register({ required: true })}
                   onChange={(e) =>
