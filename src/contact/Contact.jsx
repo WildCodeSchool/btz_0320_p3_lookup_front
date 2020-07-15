@@ -11,21 +11,41 @@ import {
 } from 'reactstrap';
 import Axios from 'axios';
 import styles from './contact.module.css';
+import { toast } from 'react-toastify';
 
 export default function Contact() {
   const [lookup, setLookup] = useState([]);
-  const [client, setClient] = useState({
-    companyName: '-',
-    streetNumber: 1,
-    streetName: '-',
-    city: '-',
-    postalCode: 1,
-    email: '-',
+  const [clientMail, setClientMail] = useState({
+    name: '-',
+    surname: 1,
     phone: '-',
-    siret: '-',
+    adresse: '-',
+    message: '-',
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
+  const notifySuccess = () => {
+    toast.success('email bien envoye !', {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const notifyError = () => {
+    toast.error('Un probleme est survenu !', {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   useEffect(() => {
     const getLookup = async () => {
@@ -46,11 +66,19 @@ export default function Contact() {
   const postClient = async (e) => {
     e.preventDefault();
     try {
-      await Axios.post(
-        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients',
-        client
-      );
+      await Axios.post('http://localhost:8000/sendMail', {
+        html: `<p><b>Nom :</b> ${clientMail.name},</p>
+        <p><b>Prenom :</b> ${clientMail.surname},</p>
+        <p><b>Telephone :</b> ${clientMail.phone},</p>
+        <p><b>Adresse :</b> ${clientMail.adresse},</p>
+        <p><b>MESSAGE:</b>
+ ${clientMail.message}</p>`,
+        subject: `Mail de contact > Lookup.fr de MR/Mme ${clientMail.surname}  ${clientMail.name}`,
+        emailTo: 'marco.sch4064@gmail.com', //Email antonin
+      });
+      notifySuccess();
     } catch (err) {
+      notifyError();
       console.log(err);
     }
   };
@@ -75,7 +103,7 @@ export default function Contact() {
                 <Input
                   className={styles.input}
                   onChange={(e) => {
-                    setClient({ ...client, city: e.target.value });
+                    setClientMail({ ...clientMail, name: e.target.value });
                   }}
                   type="text"
                   name="lastname"
@@ -88,7 +116,7 @@ export default function Contact() {
                 <Input
                   className={styles.input}
                   onChange={(e) => {
-                    setClient({ ...client, companyName: e.target.value });
+                    setClientMail({ ...clientMail, surname: e.target.value });
                   }}
                   type="text"
                   name="firstname"
@@ -103,7 +131,7 @@ export default function Contact() {
                 <Input
                   className={styles.input}
                   onChange={(e) => {
-                    setClient({ ...client, phone: e.target.value });
+                    setClientMail({ ...clientMail, phone: e.target.value });
                   }}
                   type="text"
                   name="phone"
@@ -117,7 +145,7 @@ export default function Contact() {
                 <Input
                   className={styles.input}
                   onChange={(e) => {
-                    setClient({ ...client, streetName: e.target.value });
+                    setClientMail({ ...clientMail, adresse: e.target.value });
                   }}
                   type="text"
                   name="adress"
@@ -131,7 +159,7 @@ export default function Contact() {
                 <Input
                   className={styles.input}
                   onChange={(e) => {
-                    setClient({ ...client, siret: e.target.value });
+                    setClientMail({ ...clientMail, message: e.target.value });
                   }}
                   type="textarea"
                   name="message"
