@@ -24,7 +24,7 @@ function DescriptionCard({
             className={style.picture}
             src={picture}
             alt={title}
-            width="50%"
+            width="70%"
           />
         </Col>
       </Row>
@@ -34,7 +34,7 @@ function DescriptionCard({
             className={style.picture}
             src={picture2}
             alt={title}
-            width="50%"
+            width="70%"
           />
         </Col>
         <Col>{ReactHtmlParser(description2)}</Col>
@@ -46,7 +46,7 @@ function DescriptionCard({
             className={style.picture}
             src={picture3}
             alt={title}
-            width="50%"
+            width="70%"
           />
         </Col>
       </Row>

@@ -13,54 +13,85 @@ import {
   InputGroupAddon,
   InputGroupText,
   Container,
+  Spinner,
 } from 'reactstrap';
 import { useForm } from 'react-hook-form';
 import Axios from 'axios';
-import PropTypes, { checkPropTypes } from 'prop-types';
-import emailjs from 'emailjs-com';
-import Swal from 'sweetalert2';
+import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
-import UserCard from './UserCard';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const [message, setMessage] = useState('');
-  const [emailMessage, setEmailMessage]= useState({})
   const [clients, setClients] = useState({});
   const { register } = useForm();
-  
 
+  const toggle = () => setModal(!modal);
+
+  const notifySuccess = () => {
+    toast.success('Devis bien envoyé !', {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const notifyError = () => {
+    toast.error('Erreur Notification !', {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const postClient = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       await Axios.post(
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients`,
         clients
       );
-      // await setEmailMessage(clients,message)
-      // console.log(emailMessage)
       await Axios.post('http://localhost:8000/sendMail', {
-        message,
-        subject: 'Devis demandé sur LookUp.fr',
-        emailTo: 'doudou6500@gmail.com', //Email antonin 
+        html: `<p><b>entreprise :</b> ${clients.companyName},</p>
+        <p><b>numéro de siret :</b> ${clients.siret},</p>
+        <p><b>adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
+        <p><b>email :</b> ${clients.email},</p>
+        <p><b>telephone :</b> ${clients.phone}.</p>
+        <p>Voici le message du client :</p>
+        <p>${message}</p>`,
+        subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
+        emailTo: 'doudou6500@gmail.com', // Email antonin
       });
-      setLoading(true);
-      // notifySuccess();
-
-      console.log('ok');
+      notifySuccess();
     } catch (err) {
-      // notifyError();
-      console.log(err);
+      notifyError();
+      setError(err);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  const toggle = () => setModal(!modal);
+  if (isLoading) {
+    return <Spinner color="primary" />;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   const reduction = '20%';
   return (
@@ -110,6 +141,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Entreprise"
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -125,6 +157,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Numéro Siret"
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -140,6 +173,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Numero de rue"
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -155,6 +189,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Nom de rue"
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -170,6 +205,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Code Postal"
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -200,6 +236,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Email"
+                  required
                 />
               </FormGroup>
               <FormGroup>
@@ -215,6 +252,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="06 XX XX XX XX"
+                  required
                 />
               </FormGroup>
 
