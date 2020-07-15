@@ -21,8 +21,20 @@ const defaultClient = {
 const Newsletter = () => {
   const [input, setInput] = useState(defaultClient);
 
+  const notifySuccess = () => {
+    toast.success('Votre inscription à la newsletter est enregistrée !', {
+      position: 'middle-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const notifyError = () => {
-    toast.error('Erreur Notification !', {
+    toast.error("Erreur d'inscription!", {
       position: 'bottom-center',
       autoClose: 5000,
       hideProgressBar: false,
@@ -40,6 +52,7 @@ const Newsletter = () => {
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients`,
         input
       );
+      notifySuccess();
     } catch (err) {
       notifyError();
     }
