@@ -9,18 +9,28 @@ import {
   Button,
   Spinner,
 } from 'reactstrap';
-import axios from 'axios';
+import Axios from 'axios';
 import styles from './contact.module.css';
 
 export default function Contact() {
   const [lookup, setLookup] = useState([]);
+  const [client, setClient] = useState({
+    companyName: '-',
+    streetNumber: 1,
+    streetName: '-',
+    city: '-',
+    postalCode: 1,
+    email: '-',
+    phone: '-',
+    siret: '-',
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
 
   useEffect(() => {
     const getLookup = async () => {
       try {
-        const res = await axios.get(
+        const res = await Axios.get(
           'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/admin/39e68df2-1f3f-42a6-9c73-1826db3ad3f3'
         );
         setLookup(res.data);
@@ -32,6 +42,18 @@ export default function Contact() {
     };
     getLookup();
   }, []);
+
+  const postClient = async (e) => {
+    e.preventDefault();
+    try {
+      await Axios.post(
+        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients',
+        client
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   if (isLoading) {
     return <Spinner color="info" />;
@@ -47,12 +69,15 @@ export default function Contact() {
           <p className={styles.text}>{lookup.phone}</p>
         </Col>
         <Col>
-          <Form className="mr-3">
+          <Form className="mr-3" onSubmit={(e) => postClient(e)}>
             <Row>
               <Col sm={6}>
                 <Input
                   className={styles.input}
-                  type="lastname"
+                  onChange={(e) => {
+                    setClient({ ...client, city: e.target.value });
+                  }}
+                  type="text"
                   name="lastname"
                   id="lastname"
                   placeholder="Nom"
@@ -62,7 +87,10 @@ export default function Contact() {
               <Col sm={6}>
                 <Input
                   className={styles.input}
-                  type="firstname"
+                  onChange={(e) => {
+                    setClient({ ...client, companyName: e.target.value });
+                  }}
+                  type="text"
                   name="firstname"
                   id="firstname"
                   placeholder="Prénom"
@@ -74,18 +102,24 @@ export default function Contact() {
               <Col sm={6}>
                 <Input
                   className={styles.input}
-                  type="tel"
+                  onChange={(e) => {
+                    setClient({ ...client, phone: e.target.value });
+                  }}
+                  type="text"
                   name="phone"
                   id="phone"
                   placeholder="Numéro de téléphone"
-                  pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
+                  // pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
                   required
                 />
               </Col>
               <Col sm={6}>
                 <Input
                   className={styles.input}
-                  type="adress"
+                  onChange={(e) => {
+                    setClient({ ...client, streetName: e.target.value });
+                  }}
+                  type="text"
                   name="adress"
                   id="adress"
                   placeholder="Adresse"
@@ -96,6 +130,9 @@ export default function Contact() {
               <Col sm={12}>
                 <Input
                   className={styles.input}
+                  onChange={(e) => {
+                    setClient({ ...client, siret: e.target.value });
+                  }}
                   type="textarea"
                   name="message"
                   id="message"
@@ -107,7 +144,7 @@ export default function Contact() {
 
             <FormGroup check row>
               <Col sm={12} className={styles.input}>
-                <Button>Submit</Button>
+                <Button>Envoyer</Button>
               </Col>
             </FormGroup>
           </Form>
