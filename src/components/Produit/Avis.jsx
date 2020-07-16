@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import UserCard from './UserCard';
 import style from './Avis.module.css';
 
@@ -35,9 +35,9 @@ const avis = [
 
 function Avis() {
   return (
-    <div className={style.container}>
-      <span className={style.quote1}>&quot;</span>
+    <Container>
       <Row>
+        <Col className={style.quote1}>&quot;</Col>
         {avis.map((user) => (
           <Col xs={{ size: 3 }}>
             <UserCard
@@ -48,9 +48,9 @@ function Avis() {
             />
           </Col>
         ))}
+        <Col className={style.quote2}>&quot;</Col>
       </Row>
-      <span className={style.quote2}>&quot;</span>
-    </div>
+    </Container>
   );
 }
 

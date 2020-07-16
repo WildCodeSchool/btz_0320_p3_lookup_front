@@ -12,114 +12,283 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
+  Container,
+  Spinner,
 } from 'reactstrap';
+import { useForm } from 'react-hook-form';
+import Axios from 'axios';
 import PropTypes from 'prop-types';
-import Image from './img/support-full.png';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
 
-function ImageProduit({ buttonLabel }) {
+function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+  const [clients, setClients] = useState({});
+  const { register } = useForm();
 
   const toggle = () => setModal(!modal);
+
+  const notifySuccess = () => {
+    toast.success('Devis bien envoyé !', {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const notifyError = () => {
+    toast.error('Erreur Notification !', {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const postClient = async (e) => {
+    e.preventDefault();
+    try {
+      setIsLoading(true);
+      await Axios.post(
+        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients`,
+        clients
+      );
+      await Axios.post(
+        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/sendMail`,
+        {
+          html: `<p><b>entreprise :</b> ${clients.companyName},</p>
+        <p><b>numéro de siret :</b> ${clients.siret},</p>
+        <p><b>adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
+        <p><b>email :</b> ${clients.email},</p>
+        <p><b>telephone :</b> ${clients.phone}.</p>
+        <p>Voici le message du client :</p>
+        <p>${message}</p>`,
+          subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
+          emailTo: 'doudou6500@gmail.com', // Email antonin
+        }
+      );
+      notifySuccess();
+    } catch (err) {
+      notifyError();
+      setError(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return <Spinner color="primary" />;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   const reduction = '20%';
   return (
-    <div className={style.container}>
-      <img
-        className={style.image}
-        src={Image}
-        alt="une description"
-        width="50%"
-      />
+    <Container>
+      <img src={picture} alt={name} width="50%" />
       <div>
-        <Button className={style.button} color="danger" onClick={toggle}>
+        <Button color="danger" onClick={toggle}>
           {buttonLabel}
         </Button>
         <Modal isOpen={modal} toggle={toggle} className="modal-lg">
-          <ModalHeader toggle={toggle}>DEVIS</ModalHeader>
-          <ModalBody>
-            <div>
-              <img
-                className={style.imgModal}
-                src={ImageSmall}
-                alt="une description"
-              />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                necessitatibus alias, soluta ab nesciunt temporibus maxime
-                adipisci dolore dignissimos accusantium. Nihil quibusdam dolor
-                ipsum? Dolores quis laboriosam magni quae ratione?
-              </p>
-            </div>
-            <InputGroup>
-              <InputGroupAddon addonType="prepend">
-                <InputGroupText>Nombres d&apos;articles:</InputGroupText>
-                <Input
-                  placeholder="Amount"
-                  min={0}
-                  max={100}
-                  type="number"
-                  step="1"
+          <Form onSubmit={postClient}>
+            <ModalHeader toggle={toggle}>DEVIS</ModalHeader>
+
+            <ModalBody>
+              <div>
+                <img
+                  className={style.imgModal}
+                  src={ImageSmall}
+                  alt="une description"
                 />
-              </InputGroupAddon>
-            </InputGroup>
-            <p>Réduction: {reduction}</p>
-            <Form>
+                <p>{description}</p>
+              </div>
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>Nombres d&apos;articles:</InputGroupText>
+                  <Input
+                    placeholder="Amount"
+                    min={0}
+                    max={100}
+                    type="number"
+                    step="1"
+                  />
+                </InputGroupAddon>
+              </InputGroup>
+              <p>Réduction: {reduction}</p>
+
               <FormGroup>
-                <Label for="name">Nom</Label>
-                <Input type="text" name="nom" id="name" placeholder="Mme/Mr" />
-              </FormGroup>
-              <FormGroup>
-                <Label for="company">Entreprise</Label>
+                <Label for="companyName">Entreprise</Label>
                 <Input
                   type="text"
-                  name="company"
-                  id="company"
-                  placeholder="entreprise"
+                  name="companyName"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      companyName: e.target.value,
+                    })
+                  }
+                  placeholder="Entreprise"
+                  required
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="Email">Email</Label>
+                <Label for="siret">Numéro Siret</Label>
                 <Input
-                  type="email"
-                  name="email"
-                  id="Email"
-                  placeholder="@email"
+                  type="text"
+                  name="siret"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      siret: e.target.value,
+                    })
+                  }
+                  placeholder="Numéro Siret"
+                  required
                 />
               </FormGroup>
-
+              <FormGroup>
+                <Label for="streetNumber">Numero de rue</Label>
+                <Input
+                  type="number"
+                  name="streetNumber"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      streetNumber: e.target.value,
+                    })
+                  }
+                  placeholder="Numero de rue"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="streetName">Nom de rue</Label>
+                <Input
+                  type="text"
+                  name="streetName"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      streetName: e.target.value,
+                    })
+                  }
+                  placeholder="Nom de rue"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="postalCode">Code Postal</Label>
+                <Input
+                  type="number"
+                  name="postalCode"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      postalCode: e.target.value,
+                    })
+                  }
+                  placeholder="Code Postal"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="city">Ville</Label>
+                <Input
+                  type="text"
+                  name="city"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      city: e.target.value,
+                    })
+                  }
+                  placeholder="Ville"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="email">Email</Label>
+                <Input
+                  type="text"
+                  name="email"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      email: e.target.value,
+                    })
+                  }
+                  placeholder="Email"
+                  required
+                />
+              </FormGroup>
               <FormGroup>
                 <Label for="phone">Téléphone</Label>
                 <Input
                   type="text"
                   name="phone"
-                  id="phone"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClients({
+                      ...clients,
+                      phone: e.target.value,
+                    })
+                  }
                   placeholder="06 XX XX XX XX"
+                  required
                 />
               </FormGroup>
 
               <FormGroup>
                 <Label for="message">Message</Label>
-                <Input type="textarea" name="message" id="message" />
+                <Input
+                  type="textarea"
+                  name="message"
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Votre message"
+                />
               </FormGroup>
-            </Form>
-          </ModalBody>
-          <ModalFooter>
-            <Button block color="success" onClick={toggle}>
-              Validez votre devis
-            </Button>
-            <Button block color="danger" onClick={toggle}>
-              Annuler
-            </Button>
-          </ModalFooter>
+            </ModalBody>
+            <ModalFooter>
+              <Button block color="success" type="submit" onClick={toggle}>
+                Validez votre devis
+              </Button>
+              <Button block color="danger" onClick={toggle}>
+                Annuler
+              </Button>
+            </ModalFooter>
+          </Form>
         </Modal>
       </div>
-    </div>
+    </Container>
   );
 }
 
 ImageProduit.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default ImageProduit;
