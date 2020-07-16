@@ -3,45 +3,35 @@
 }
 
 .quote1 {
-  float: right;
+  /* float: right; */
   font-family: 'Catamaran', sans-serif;
   font-size: 120px;
-  translate: -500% 10%;
+  /* translate: -500% 10%; */
+  padding-top: 50vh;
 }
 
 .quote2 {
-  float: left;
+  /* float: left; */
   font-family: 'Catamaran', sans-serif;
   font-size: 120px;
-  translate: 500% -40%;
+
+  /* translate: 500% -40%; */
 }
 
 @media screen and (max-width: 1500px) {
   .quote1 {
-    translate: -400% 10%;
-  }
-
-  .quote2 {
-    translate: 400% -40%;
+    padding-top: 60vh;
   }
 }
 
 @media screen and (max-width: 1100px) {
   .quote1 {
-    translate: -300%;
-  }
-
-  .quote2 {
-    translate: 300% -20%;
+    padding-top: 60vh;
   }
 }
 
 @media screen and (max-width: 800px) {
   .quote1 {
-    translate: -100%;
-  }
-
-  .quote2 {
-    translate: 100% -20%;
+    padding-top: 70vh;
   }
 }
