@@ -1,7 +1,3 @@
-.font {
-  font-family: 'Montserrat';
-}
-
 .title2 {
   color: #e7742d;
   font-size: 70px;
@@ -31,26 +27,27 @@
   color: white;
   font-size: 25px;
 }
-
+.sectionImgText {
+  display: flex;
+  margin: 5vw;
+  height: 60vh;
+}
 .gamme {
   background-color: #e2f2f2;
-  margin-top: 70px;
-  padding: 40px 40px 60px 70px;
+  width: 40vw;
+  translate: -5% 5%;
+
+  padding: 40px 40px 40px 40px;
+  margin-top: 5vh;
+}
+
+.imgDiv {
+  position: relative;
   z-index: 1;
 }
-
-.catalogue {
-  display: flex;
-  justify-content: center;
-}
-
 .inclinaison {
-  box-shadow: 30px 30px 0px #d8d4d4;
-  padding: 0px;
-  margin-left: 50px;
-  z-index: 2;
-}
-
-.card {
-  border: 0 none !important;
+  box-shadow: 20px 20px 10px #d4d0d0;
+  width: 40vw;
+  margin-left: 10vw;
+  z-index: 10;
 }
