@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Spinner } from 'reactstrap';
+import { Spinner, Col, Row, Container } from 'reactstrap';
+import ReactHtmlParser from 'react-html-parser';
+
 import Description from './Description';
 import ImageProduit from './ImageProduit';
 import style from './Produits.module.css';
@@ -11,14 +13,14 @@ const Produits = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const right = {
-    float: 'right',
-    translate: '25%',
-  };
-  const left = {
-    float: 'left',
-    translate: '-25%',
-  };
+  // const right = {
+  //   float: 'right',
+  //   translate: '25%',
+  // };
+  // const left = {
+  //   float: 'left',
+  //   translate: '-25%',
+  // };
   // const whiteBackground = {
   //   width: '75vw',
   // };
@@ -51,28 +53,30 @@ const Produits = () => {
     return <p>{error}</p>;
   }
   return (
-    <Container>
-      {productData.map((product) => (
-        <>
-          <ImageProduit
-            buttonLabel="Demande de devis"
-            key={product.uuid}
-            picture={product.picture}
-            description={product.description}
-            name={product.name}
-          />
-          <h1 className={style.title}>{product.name}</h1>
-          <Description
-            floatRight={right}
-            floatLeft={left}
-            backgroundBlue={blueBackground}
-            key={product.uuid}
-            uuid={product.uuid}
-          />
-          <Avis />
-        </>
-      ))}
-    </Container>
+    <Row>
+      <Col>
+        {productData.map((product) => (
+          <>
+            <ImageProduit
+              buttonLabel="Demande de devis"
+              key={product.uuid}
+              picture={product.picture}
+              description={product.description}
+              name={product.name}
+            />
+            <Container>
+              <h1 className={style.title}>{ReactHtmlParser(product.name)}</h1>
+            </Container>
+            <Description
+              backgroundBlue={blueBackground}
+              key={product.uuid}
+              uuid={product.uuid}
+            />
+            <Avis />
+          </>
+        ))}
+      </Col>
+    </Row>
   );
 };
 

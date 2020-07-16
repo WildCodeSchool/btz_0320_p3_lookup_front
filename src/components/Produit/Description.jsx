@@ -5,7 +5,7 @@ import { Spinner } from 'reactstrap';
 
 import DescriptionCard from './DescriptionCard';
 
-function Description({ floatLeft, floatRight, backgroundBlue, uuid }) {
+function Description({ backgroundBlue, uuid }) {
   const [productInfo, setProductInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -47,8 +47,6 @@ function Description({ floatLeft, floatRight, backgroundBlue, uuid }) {
             picture={productI.picture}
             picture2={productI.picture2}
             picture3={productI.picture3}
-            floatLeft={floatLeft}
-            floatRight={floatRight}
             backgroundBlue={backgroundBlue}
             title={productI.title}
           />
@@ -59,8 +57,6 @@ function Description({ floatLeft, floatRight, backgroundBlue, uuid }) {
 }
 
 Description.propTypes = {
-  floatLeft: PropTypes.string.isRequired,
-  floatRight: PropTypes.string.isRequired,
   uuid: PropTypes.string.isRequired,
   backgroundBlue: PropTypes.string.isRequired,
 };

@@ -101,7 +101,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
   // const reduction = '20%';
   return (
     <Container>
-      <img src={picture} alt={name} width="50%" />
+      <img src={picture} alt={name} width="70%" />
       <div>
         <Button color="danger" onClick={toggle}>
           {buttonLabel}

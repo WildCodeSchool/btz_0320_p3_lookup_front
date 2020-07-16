@@ -16,7 +16,7 @@ const avis = [
   {
     id: 2,
     name: 'Justine C.',
-    photo: 'https://via.placeholder.com/300x300',
+    photo: 'https://i.imgur.com/oDsreTH.jpg',
     position: 'Responsable Service Client',
     compagny: 'HOPAAL',
     text:
@@ -25,7 +25,7 @@ const avis = [
   {
     id: 3,
     name: 'Guillaume M.',
-    photo: 'https://via.placeholder.com/300x300',
+    photo: 'https://i.imgur.com/KCFZrJI.jpg',
     position: 'Juriste',
     compagny: 'EXCO FIDUCIAIRE',
     text:
@@ -35,7 +35,7 @@ const avis = [
 
 function Avis() {
   return (
-    <Container>
+    <Container className={style.container}>
       <Row>
         <Col className={style.quote1}>&quot;</Col>
         {avis.map((user) => (

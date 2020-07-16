@@ -1,21 +1,16 @@
 .container {
-  margin-bottom: 30px;
+  margin-top: 40px;
 }
 
 .quote1 {
-  /* float: right; */
   font-family: 'Catamaran', sans-serif;
   font-size: 120px;
-  /* translate: -500% 10%; */
   padding-top: 50vh;
 }
 
 .quote2 {
-  /* float: left; */
   font-family: 'Catamaran', sans-serif;
   font-size: 120px;
-
-  /* translate: 500% -40%; */
 }
 
 @media screen and (max-width: 1500px) {
