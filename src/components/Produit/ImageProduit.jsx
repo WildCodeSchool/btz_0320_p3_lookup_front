@@ -65,17 +65,20 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients`,
         clients
       );
-      await Axios.post('http://localhost:8000/sendMail', {
-        html: `<p><b>entreprise :</b> ${clients.companyName},</p>
+      await Axios.post(
+        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/sendMail`,
+        {
+          html: `<p><b>entreprise :</b> ${clients.companyName},</p>
         <p><b>numéro de siret :</b> ${clients.siret},</p>
         <p><b>adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
         <p><b>email :</b> ${clients.email},</p>
         <p><b>telephone :</b> ${clients.phone}.</p>
         <p>Voici le message du client :</p>
         <p>${message}</p>`,
-        subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
-        emailTo: 'doudou6500@gmail.com', // Email antonin
-      });
+          subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
+          emailTo: 'doudou6500@gmail.com', // Email antonin
+        }
+      );
       notifySuccess();
     } catch (err) {
       notifyError();
