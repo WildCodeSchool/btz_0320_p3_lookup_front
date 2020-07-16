@@ -35,13 +35,33 @@
   border-radius: 0px;
 }
 
-.input button {
+.input::placeholder {
+  color: white;
+}
+
+.input:hover {
+  border: 1px solid white;
+}
+
+.inputButton {
   margin-top: 20px;
-  /* background-color: #dd7942; */
   border: none;
 }
 
-.input button:hover {
-  opacity: 0.8;
-  /* background-color: #dd7942; */
+.form-check {
+  padding-left: 0rem;
+}
+
+.inputButtonClick {
+  width: 100%;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 0px;
+}
+
+.inputButtonClick:hover {
+  opacity: 0.6;
+  background-color: white;
+  color: black;
 }

@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <Container fluid className={styles.div}>
       <Row className="d-flex align-items-center justify-content-center">
-        <Col className={styles.col}>
+        <Col className={`${styles.col} d-flex flex-column align-items-center`}>
           <h1 className={styles.title1}>Vous souhaitez nous contacter ?</h1>
           <p className={styles.title3}>Société Look up</p>
           <p className={styles.text}>lookup-france@protonmail.com</p>
@@ -81,8 +81,8 @@ export default function Contact() {
             </Row>
 
             <FormGroup check row>
-              <Col sm={12} className={styles.input}>
-                <Button>Submit</Button>
+              <Col sm={12} className={styles.inputButton}>
+                <Button className={styles.inputButtonClick}>Submit</Button>
               </Col>
             </FormGroup>
           </Form>
