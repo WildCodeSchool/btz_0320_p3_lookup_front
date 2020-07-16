@@ -33,9 +33,16 @@
   border: none;
   border-bottom: 1px solid white;
   border-radius: 0px;
+  color: white;
 }
 
 .input::placeholder {
+  color: white;
+}
+
+.input:focus {
+  background: transparent;
+  border: 1px solid white;
   color: white;
 }
 
@@ -49,7 +56,7 @@
 }
 
 .form-check {
-  padding-left: 0rem;
+  padding-left: 0rem !important;
 }
 
 .inputButtonClick {
