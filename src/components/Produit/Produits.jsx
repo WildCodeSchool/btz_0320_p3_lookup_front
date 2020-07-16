@@ -19,9 +19,7 @@ const Produits = () => {
     float: 'left',
     translate: '-25%',
   };
-  // const whiteBackground = {
-  //   width: '75vw',
-  // };
+
   const blueBackground = {
     backgroundColor: 'lightblue',
   };

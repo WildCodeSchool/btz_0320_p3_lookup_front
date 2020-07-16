@@ -3,10 +3,21 @@ footer {
   flex-direction: column;
   justify-content: center;
   background: white;
-
   width: 100vw;
   padding: 1em;
   margin-right: -1em;
+}
+
+.signature {
+  margin: 2vh 0 0 0;
+}
+
+.signature a {
+  color: orange;
+}
+
+.signature a:visited {
+  color: lightblue;
 }
 
 .partners {
