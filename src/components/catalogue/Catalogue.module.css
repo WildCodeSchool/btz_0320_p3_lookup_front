@@ -1,6 +1,7 @@
 .title2 {
   color: #e7742d;
   font-size: 70px;
+  margin-top: 5vh;
 }
 
 .title3 {
@@ -37,7 +38,7 @@
   width: 40vw;
   translate: -5% 5%;
 
-  padding: 40px 40px 40px 40px;
+  padding: 50px 50px 50px 50px;
   margin-top: 5vh;
 }
 

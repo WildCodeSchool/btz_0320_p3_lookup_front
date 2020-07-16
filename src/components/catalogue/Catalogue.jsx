@@ -7,7 +7,7 @@ const inclinaison2 = require('./Inclinaison2.png');
 
 const Catalogue = () => {
   return (
-    <div className={styles.font}>
+    <div>
       <Row className={styles.card}>
         <Col>
           <h2 className={styles.title2}>Découvrez</h2>
