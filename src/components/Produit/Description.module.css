@@ -2,12 +2,14 @@
   /* display: inline-block; */
   /* width: 95vw; */
   /* height: auto; */
-  /* padding: 20px 10px;
-  margin: 10px; */
+  /* padding: 20px 10px;*/
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 20px;
   width: 90vw;
   border-radius: 20px;
   min-height: 200px;
+  /* box-shadow: 1px 1px 12px #555; */
 }
 
 /* .col {
@@ -17,6 +19,8 @@
 .picture {
   border-radius: 20px;
   margin: 10px;
+  width: 30vw;
+  box-shadow: 1px 1px 12px #555;
 }
 
 .title {

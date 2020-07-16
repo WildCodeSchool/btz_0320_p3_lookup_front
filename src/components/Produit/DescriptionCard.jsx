@@ -18,55 +18,31 @@ function DescriptionCard({
   return (
     <>
       <Container fluid style={backgroundBlue} className={style.container}>
-        <Row>
-          <Col
-            lg={{ size: 5, offset: 1 }}
-            className={`${style.col} d-flex align-items-center row`}
-          >
+        <Row className="d-flex align-items-center">
+          <Col lg={{ size: 5, offset: 1 }} className={style.col}>
             {ReactHtmlParser(description)}
           </Col>
-          <Col
-            lg={{ size: 4 }}
-            md={{ size: 8, offset: 2 }}
-            sm={{ size: 12 }}
-            className="d-flex align-items-center row"
-          >
+          <Col lg={{ size: 2 }} md={{ size: 8, offset: 1 }} sm={{ size: 12 }}>
             <img className={style.picture} src={picture} alt={title} />
           </Col>
         </Row>
       </Container>
       <Container fluid className={style.container}>
-        <Row>
-          <Col
-            lg={{ size: 4 }}
-            md={{ size: 8, offset: 1 }}
-            sm={{ size: 12 }}
-            className="d-flex align-items-center row"
-          >
+        <Row className="d-flex align-items-center">
+          <Col lg={{ size: 4 }} md={{ size: 8, offset: 1 }} sm={{ size: 12 }}>
             <img className={style.picture} src={picture2} alt={title} />
           </Col>
-          <Col
-            lg={{ size: 5, offset: 1 }}
-            className={`${style.col} d-flex align-items-center row`}
-          >
+          <Col lg={{ size: 5, offset: 1 }} className={style.col}>
             {ReactHtmlParser(description2)}
           </Col>
         </Row>
       </Container>
       <Container fluid style={backgroundBlue} className={style.container}>
-        <Row>
-          <Col
-            lg={{ size: 5, offset: 1 }}
-            className={`${style.col} d-flex align-items-center row`}
-          >
+        <Row className="d-flex align-items-center">
+          <Col lg={{ size: 5, offset: 1 }} className={style.col}>
             {ReactHtmlParser(description3)}
           </Col>
-          <Col
-            lg={{ size: 4 }}
-            md={{ size: 8, offset: 2 }}
-            sm={{ size: 12 }}
-            className="d-flex align-items-center row"
-          >
+          <Col lg={{ size: 4 }} md={{ size: 8, offset: 1 }} sm={{ size: 12 }}>
             <img className={style.picture} src={picture3} alt={title} />
           </Col>
         </Row>
