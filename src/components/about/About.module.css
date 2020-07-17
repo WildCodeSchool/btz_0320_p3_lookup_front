@@ -3,7 +3,7 @@
 
   width: 85%;
   /* height: 20%; */
-  box-shadow: 30px 30px 0px #d8d4d4;
+  box-shadow: 15px 15px 0px lightblue;
 }
 
 p {
@@ -13,7 +13,7 @@ p {
 
 .title_about {
   text-align: center !important;
-  color: #e7742d;
+  color: #3965a1;
   font-size: 30px;
   margin-top: 50px;
   margin-bottom: 40px;
@@ -25,5 +25,5 @@ p {
   margin-right: auto;
   margin-bottom: 30px;
   font-size: 20px;
-  color: #3965a1;
+  color: black;
 }
