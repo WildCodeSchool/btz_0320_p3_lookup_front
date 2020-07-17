@@ -1,24 +1,68 @@
 import React, { useState } from 'react';
 import { Form, Button, Input, Col, Row } from 'reactstrap';
+import Axios from 'axios';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import styles from './Newsletter.module.css';
 
+toast.configure();
+
+const defaultClient = {
+  companyName: 'Newsletter',
+  streetNumber: 1,
+  streetName: '-',
+  city: '-',
+  postalCode: 1,
+  email: '',
+  phone: '-',
+  siret: '-',
+};
+
 const Newsletter = () => {
-  const [input, setInput] = useState('');
-  const [emails, setEmails] = useState(['']);
+  const [input, setInput] = useState(defaultClient);
 
-  const addEmail = (newEmail) => {
-    const newEmails = [...emails, newEmail];
-    setEmails(newEmails);
+  const notifySuccess = () => {
+    toast.success('Votre inscription à la newsletter est enregistrée !', {
+      position: 'middle-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
-  const handleSubmit = (e) => {
+  const notifyError = () => {
+    toast.error("Erreur d'inscription!", {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const postNewsletter = async (e) => {
     e.preventDefault();
-    addEmail();
-    setInput('');
+    try {
+      await Axios.post(
+        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/clients`,
+        input
+      );
+      notifySuccess();
+    } catch (err) {
+      notifyError();
+    }
+
+    setInput(defaultClient);
   };
+
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={postNewsletter}>
         <hr className={styles.hr} />
         <Row className={styles.newsForm}>
           <Col md="12" lg="4">
@@ -27,9 +71,14 @@ const Newsletter = () => {
           <Col lg="4" md="6" sm="8" xs="10">
             <Input
               type="text"
-              value={input}
+              value={input.email}
               placeholder="email"
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) =>
+                setInput({
+                  ...input,
+                  email: e.target.value,
+                })
+              }
             />
           </Col>
           <Col lg="4" md="12">
@@ -37,11 +86,6 @@ const Newsletter = () => {
               Envoyer
             </Button>
           </Col>
-        </Row>
-        <Row>
-          {emails.map((email) => (
-            <p>{email}</p>
-          ))}
         </Row>
       </Form>
     </>

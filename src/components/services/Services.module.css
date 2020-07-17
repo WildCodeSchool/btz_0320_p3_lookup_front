@@ -1,5 +1,5 @@
 .title1 {
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
   color: #e7742d;
   margin-top: 100px;
@@ -41,4 +41,10 @@
   background-color: #3965a1;
   color: white;
   font-size: 25px;
+  margin-top: 30px;
+}
+
+.contact:hover {
+  opacity: 0.8;
+  background-color: #3965a1;
 }

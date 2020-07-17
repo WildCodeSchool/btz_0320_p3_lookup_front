@@ -34,7 +34,11 @@ export default function PressRelation() {
       <Row>
         {presse.map((relation) => {
           return (
-            <Press image={relation.picture} texte={relation.description} />
+            <Press
+              image={relation.picture}
+              texte={relation.description}
+              description={relation.description}
+            />
           );
         })}
       </Row>
