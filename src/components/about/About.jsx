@@ -9,14 +9,15 @@ export default function About() {
   return (
     <Container fluid className={styles.center}>
       <Row>
-        <Col
-          lg="5"
-          className="d-flex flex-column align-items-center justify-content-center"
-        >
+        <Col>
+          <h3 className={styles.title_about}>Humain, Nature & Technologie </h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg="5" className="d-flex flex-column align-items-center">
           <img className={styles.img_about} src={antonin} alt="A propos" />
         </Col>
         <Col lg="7">
-          <h3 className={styles.title_about}>Humain, Nature & Technologie </h3>
           <p>
             Comme vous, chez LookUp, nous observons le monde de l’entreprise se
             digitaliser et nous sommes convaincus des ces bienfaits. Pour autant
