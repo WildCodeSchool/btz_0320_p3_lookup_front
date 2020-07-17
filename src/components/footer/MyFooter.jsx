@@ -32,11 +32,14 @@ export default function MyFooter() {
   return (
     <footer>
       <Row>
+        <Col lg={{ size: 12 }} md={{ size: 12 }}>
+          <hr />
+        </Col>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row className="d-flex align-items-center">
             {partner.map((i) => (
               <Col>
-                <a href={i.title} target="_blank" rel="noopener noreferrer">
+                <a href={i.link} target="_blank" rel="noopener noreferrer">
                   <img
                     className={styles.partners}
                     src={i.logo}
@@ -48,8 +51,50 @@ export default function MyFooter() {
           </Row>
         </Col>
       </Row>
-      <Row className={`d-flex justify-content-center ${styles.footertext}`}>
-        Creé en 2020 par LookUp
+      <Row className={styles.footertext}>
+        <p className={styles.signature}>
+          {' '}
+          Creé en 2020 par{' '}
+          <a
+            href="https://www.linkedin.com/in/marion-hourdou/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Marion
+          </a>
+          ,{' '}
+          <a
+            href="https://www.linkedin.com/in/adelebobinparra/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Adele
+          </a>
+          ,{' '}
+          <a
+            href="https://www.linkedin.com/in/marc-schiavone/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Marc
+          </a>
+          ,{' '}
+          <a
+            href="https://www.linkedin.com/in/tommy-chinn/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Tommy
+          </a>
+          ,{' '}
+          <a
+            href="https://www.linkedin.com/in/jp-susini-rav%C3%A9-0170b61a4/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            JP
+          </a>
+        </p>
       </Row>
     </footer>
   );

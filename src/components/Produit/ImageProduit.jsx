@@ -26,10 +26,11 @@ import style from './ImageProduit.module.css';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [clients, setClients] = useState({});
+  const [quantity, setQuantity] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const { register } = useForm();
 
   const toggle = () => setModal(!modal);
@@ -73,6 +74,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
         <p><b>adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
         <p><b>email :</b> ${clients.email},</p>
         <p><b>telephone :</b> ${clients.phone}.</p>
+        <p><b>quantités :</b> ${quantity},</p>
         <p>Voici le message du client :</p>
         <p>${message}</p>`,
           subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
@@ -96,10 +98,10 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
     return <p>{error}</p>;
   }
 
-  const reduction = '20%';
+  // const reduction = '20%';
   return (
     <Container>
-      <img src={picture} alt={name} width="50%" />
+      <img src={picture} alt={name} width="70%" />
       <div>
         <Button color="danger" onClick={toggle}>
           {buttonLabel}
@@ -126,10 +128,11 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     max={100}
                     type="number"
                     step="1"
+                    onChange={(e) => setQuantity(e.target.value)}
                   />
                 </InputGroupAddon>
               </InputGroup>
-              <p>Réduction: {reduction}</p>
+              {/* <p>Réduction: {reduction}</p> */}
 
               <FormGroup>
                 <Label for="companyName">Entreprise</Label>
