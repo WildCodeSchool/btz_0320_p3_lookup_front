@@ -33,10 +33,10 @@ export default function MyFooter() {
     <footer>
       <Row>
         <Col lg={{ size: 12 }} md={{ size: 12 }}>
-          <hr />
+          <hr className={styles.topLine} />
         </Col>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          <Row className="d-flex align-items-center">
+          <Row>
             {partner.map((i) => (
               <Col>
                 <a href={i.link} target="_blank" rel="noopener noreferrer">
