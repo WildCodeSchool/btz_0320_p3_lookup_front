@@ -2,6 +2,10 @@
   /* width: 50%; */
   margin: auto;
   padding-top: 50px;
-  width: 5vw;
-  height: 7vh;
+  /* width: 100px; */
+  height: 80px;
+}
+
+.title {
+  color: #3965a1;
 }

@@ -6,7 +6,7 @@ export default function Press({ image, texte, description }) {
   return (
     <>
       <img className={style.card} src={image} alt={description} />
-      <p>Coucou{texte}</p>
+      <p>{texte}</p>
     </>
   );
 }
