@@ -1,21 +1,17 @@
-.sectionImgText {
-  background-color: #3965a1;
-  min-height: 40vw;
-}
-
 .title2 {
-  color: #e7742d;
-  font-size: 70px;
-  margin-top: 5vh;
+  color: #3965a1;
+  font-size: 6vh;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
 }
 
 .title3 {
-  color: #e7742d;
+  color: #3965a1;
   font-size: 30px;
 }
 
 .subtitle {
-  color: #3965a1;
+  color: black;
   font-size: 35px;
   margin-top: 20px;
   margin-bottom: 60px;
@@ -25,21 +21,32 @@
 }
 
 .subtitle2 {
-  color: #3965a1;
+  color: black;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 .trouvez {
   background-color: #3965a1;
   color: white;
   font-size: 20px;
+  border: none;
+  border-radius: 0px;
 }
+
+.trouvez:hover {
+  background-color: #3965a1;
+  opacity: 0.9;
+}
+
 .sectionImgText {
   display: flex;
   padding-top: 5vh;
   padding-bottom: 5vh;
   height: 60vh;
+  background-color: #3965a1;
+  min-height: 40vw;
 }
 .gamme {
   background-color: #e2f2f2;
