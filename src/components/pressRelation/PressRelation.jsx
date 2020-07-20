@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Container, Spinner } from 'reactstrap';
+import { Row, Container, Spinner, Col } from 'reactstrap';
 import axios from 'axios';
 import Press from './Press';
 
@@ -32,15 +32,22 @@ export default function PressRelation() {
   return (
     <Container fluid="lg" className="mt-5">
       <Row>
-        {presse.map((relation) => {
-          return (
-            <Press
-              image={relation.picture}
-              texte={relation.description}
-              description={relation.description}
-            />
-          );
-        })}
+        <Row>
+          <Col>
+            <h1>Il parle de nous ...</h1>
+          </Col>
+        </Row>
+        <Row>
+          {presse.map((relation) => {
+            return (
+              <Press
+                image={relation.picture}
+                texte={relation.description}
+                description={relation.description}
+              />
+            );
+          })}
+        </Row>
       </Row>
     </Container>
   );
