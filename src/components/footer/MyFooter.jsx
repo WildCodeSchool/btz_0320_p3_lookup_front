@@ -33,7 +33,10 @@ export default function MyFooter() {
     <footer>
       <Row>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          <Row className="d-flex align-items-center">
+          <h5 style={{ color: '#3965a1' }}>développé avec le soutien de</h5>
+        </Col>
+        <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
+          <Row>
             {partner.map((i) => (
               <Col>
                 <a href={i.link} target="_blank" rel="noopener noreferrer">
