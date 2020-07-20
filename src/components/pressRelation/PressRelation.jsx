@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Container, Spinner } from 'reactstrap';
+import { Row, Container, Spinner, Col } from 'reactstrap';
 import axios from 'axios';
 import Press from './Press';
+import style from './Press.module.css';
 
 export default function PressRelation() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,15 +33,28 @@ export default function PressRelation() {
   return (
     <Container fluid="lg" className="mt-5">
       <Row>
-        {presse.map((relation) => {
-          return (
-            <Press
-              image={relation.picture}
-              texte={relation.description}
-              description={relation.description}
-            />
-          );
-        })}
+        <Col
+          lg={{ size: 8, offset: 2 }}
+          md={{ size: 8, offset: 2 }}
+          className={style.title}
+        >
+          <h2>Il parle de nous ...</h2>
+        </Col>
+        <Col lg={{ size: 12 }} md={{ size: 12 }}>
+          <Row className="justify-content-center">
+            {presse.map((relation) => {
+              return (
+                <Col lg={{ size: 2 }} md={{ size: 2 }} xs>
+                  <Press
+                    image={relation.picture}
+                    texte={relation.description}
+                    description={relation.description}
+                  />
+                </Col>
+              );
+            })}
+          </Row>
+        </Col>
       </Row>
     </Container>
   );

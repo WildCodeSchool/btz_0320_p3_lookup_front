@@ -1,5 +1,10 @@
 .card {
-  width: 50%;
   margin: auto;
   padding-top: 50px;
+
+  height: 80px;
+}
+
+.title {
+  color: #3965a1;
 }
