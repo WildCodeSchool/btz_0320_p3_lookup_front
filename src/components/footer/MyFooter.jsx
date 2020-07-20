@@ -36,6 +36,9 @@ export default function MyFooter() {
           <hr className={styles.topLine} />
         </Col>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
+          <h5 style={{ color: '#3965a1' }}>développé avec le soutien de</h5>
+        </Col>
+        <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row>
             {partner.map((i) => (
               <Col>
