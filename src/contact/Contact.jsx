@@ -171,7 +171,7 @@ export default function Contact() {
 
             <FormGroup check row>
               <Col sm={12} className={styles.inputButton}>
-                <Button className={styles.inputButtonClick}>Submit</Button>
+                <Button className={styles.inputButtonClick}>Envoyer</Button>
               </Col>
             </FormGroup>
           </Form>
