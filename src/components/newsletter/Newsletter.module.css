@@ -8,15 +8,15 @@
 
 .newsButton {
   color: #3965a1;
-  background-color: #e2f2f2;
+  background-color: white;
   border: none;
   border-radius: 0px;
 }
 
 .newsButton:hover {
   color: #3965a1;
-  opacity: 0.8;
-  background-color: #e2f2f2;
+  opacity: 0.9;
+  background-color: white;
 }
 
 .newsInput {

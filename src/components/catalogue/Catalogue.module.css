@@ -79,4 +79,8 @@
   .subtitle {
     font-size: 25px;
   }
+
+  .sectionImgText {
+    min-height: 80vh;
+  }
 }
