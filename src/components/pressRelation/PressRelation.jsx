@@ -32,19 +32,23 @@ export default function PressRelation() {
   return (
     <Container fluid="lg" className="mt-5">
       <Row>
-        <Row>
-          <Col>
-            <h1>Il parle de nous ...</h1>
-          </Col>
-        </Row>
-        <Row>
+        <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
+          <h1>Il parle de nous ...</h1>
+        </Col>
+        <Row
+          lg={{ size: 8, offset: 2 }}
+          md={{ size: 8, offset: 2 }}
+          // style={{ height: '20vh' }}
+        >
           {presse.map((relation) => {
             return (
-              <Press
-                image={relation.picture}
-                texte={relation.description}
-                description={relation.description}
-              />
+              <Col>
+                <Press
+                  image={relation.picture}
+                  texte={relation.description}
+                  description={relation.description}
+                />
+              </Col>
             );
           })}
         </Row>
