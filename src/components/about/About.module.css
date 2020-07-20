@@ -6,21 +6,23 @@
   box-shadow: 15px 15px 0px lightblue;
 }
 
-p {
+.text {
   margin-left: 2rem;
-  margin-right: 2rem;
+  margin-right: 7rem;
+  padding-top: 40px;
 }
 
 .title_about {
   text-align: center !important;
   color: #3965a1;
-  font-size: 30px;
-  margin-top: 50px;
+  font-size: 40px;
+  margin-top: 70px;
   margin-bottom: 40px;
+  margin-right: 7rem;
 }
 
-.center {
-  text-align: center !important;
+.justify {
+  text-align: justify !important;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
