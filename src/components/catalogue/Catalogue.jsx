@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Button, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import styles from './Catalogue.module.css';
 
 const inclinaison2 = require('./Inclinaison2.png');
@@ -38,9 +39,11 @@ const Catalogue = () => {
             permettant d'améliorer simplement les conditions de travail de vos
             collaborateurs.
           </p>
-          <Button className={styles.trouvez}>
-            Trouvez celui qui vous correspond!
-          </Button>
+          <Link to="/product">
+            <Button className={styles.trouvez}>
+              Trouvez celui qui vous correspond!
+            </Button>
+          </Link>
         </Col>
       </Row>
     </div>
