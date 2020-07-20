@@ -7,8 +7,8 @@ const inclinaison2 = require('./Inclinaison2.png');
 
 const Catalogue = () => {
   return (
-    <div>
-      <Row className={styles.card}>
+    <div className={styles.card}>
+      <Row>
         <Col>
           <h2 className={styles.title2}>Découvrez</h2>
           <p className={styles.subtitle}>
@@ -16,15 +16,20 @@ const Catalogue = () => {
           </p>
         </Col>
       </Row>
-      <div className={styles.sectionImgText}>
-        <div className={styles.imgDiv}>
+      <Row className={styles.sectionImgText}>
+        <Col lg="6" md="12" className={styles.imgDiv}>
           <img
             className={styles.inclinaison}
             src={inclinaison2}
             alt="support incliné"
           />
-        </div>
-        <div className={styles.gamme}>
+        </Col>
+        <Col
+          xs="12"
+          md="12"
+          lg="5"
+          className={`${styles.gamme} d-flex flex-column justify-content-center`}
+        >
           <h3 className={styles.title3}>
             Notre gamme de produits ergonomiques
           </h3>
@@ -36,8 +41,8 @@ const Catalogue = () => {
           <Button className={styles.trouvez}>
             Trouvez celui qui vous correspond!
           </Button>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 };
