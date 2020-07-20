@@ -32,9 +32,6 @@ export default function MyFooter() {
   return (
     <footer>
       <Row>
-        <Col lg={{ size: 12 }} md={{ size: 12 }}>
-          <hr />
-        </Col>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row className="d-flex align-items-center">
             {partner.map((i) => (

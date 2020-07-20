@@ -1,21 +1,54 @@
+.newsText {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 20px;
+}
+
 .newsButton {
-  background-color: #3965a1;
+  color: #3965a1;
+  background-color: #e2f2f2;
+  border: none;
+  border-radius: 0px;
 }
 
 .newsButton:hover {
+  color: #3965a1;
   opacity: 0.8;
-  background-color: #3965a1;
+  background-color: #e2f2f2;
 }
 
-.hr {
-  width: 98%;
+.newsInput {
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: 0px;
+  background-color: #3965a1;
+  color: white;
+}
+
+.newsInput:hover {
+  border: 1px solid white;
+}
+
+.newsInput:focus {
+  background-color: #3965a1;
+  color: white;
+  border: 1px solid white;
+}
+
+.newsInput::placeholder {
+  color: white;
 }
 
 .newsForm {
   margin-top: 40px;
   margin-bottom: 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   justify-content: center;
+  background-color: #3965a1;
 }
 
 @media screen and (max-width: 991px) {

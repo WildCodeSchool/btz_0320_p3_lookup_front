@@ -63,13 +63,13 @@ const Newsletter = () => {
   return (
     <>
       <Form onSubmit={postNewsletter}>
-        <hr className={styles.hr} />
         <Row className={styles.newsForm}>
           <Col md="12" lg="4">
-            <p>S&apos;inscire à la newsletter</p>
+            <p className={styles.newsText}>S&apos;inscire à la newsletter</p>
           </Col>
           <Col lg="4" md="6" sm="8" xs="10">
             <Input
+              className={styles.newsInput}
               type="text"
               value={input.email}
               placeholder="email"
