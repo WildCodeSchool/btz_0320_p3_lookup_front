@@ -5,12 +5,7 @@ import style from './Press.module.css';
 export default function Press({ image, texte, description }) {
   return (
     <>
-      <img
-        className={style.card}
-        src={image}
-        alt={description}
-        style={{ width: '100px', height: '100px' }}
-      />
+      <img className={style.card} src={image} alt={description} />
       <p>Coucou{texte}</p>
     </>
   );

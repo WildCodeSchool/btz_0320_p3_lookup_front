@@ -35,11 +35,7 @@ export default function PressRelation() {
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <h1>Il parle de nous ...</h1>
         </Col>
-        <Row
-          lg={{ size: 8, offset: 2 }}
-          md={{ size: 8, offset: 2 }}
-          // style={{ height: '20vh' }}
-        >
+        <Row lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           {presse.map((relation) => {
             return (
               <Col>
