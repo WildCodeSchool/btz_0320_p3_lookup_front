@@ -36,7 +36,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
   const toggle = () => setModal(!modal);
 
   const notifySuccess = () => {
-    toast.success('Devis bien envoyé !', {
+    toast.success('Votre demande a été prise en compte', {
       position: 'bottom-center',
       autoClose: 5000,
       hideProgressBar: false,
