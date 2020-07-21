@@ -20,14 +20,14 @@ import Axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 
 import styles from './NavbarComp.module.css';
-
-const logo = require('./LookUp.png');
-const facebook = require('./facebook.png');
-const linkedin = require('./linkedin.png');
+import logo from './LookUp.png';
+import facebook from './facebook.png';
+import linkedin from './linkedin.png';
 
 const MyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [productData, setProductData] = useState([]);
+  const [productInfoData, setProductInfoData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -39,6 +39,10 @@ const MyNavbar = () => {
         'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products'
       );
       setProductData(res.data);
+      const resInfoProduct = await Axios.get(
+        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products_info`
+      );
+      setProductInfoData(resInfoProduct.data);
     } catch (err) {
       setError(err);
     } finally {
@@ -73,11 +77,6 @@ const MyNavbar = () => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="mr-auto" navbar>
-                {/* <NavItem>
-                  <Link to="/product">
-                    <NavLink>Produits</NavLink>
-                  </Link>
-                </NavItem> */}
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                     Produits
@@ -92,7 +91,6 @@ const MyNavbar = () => {
                         </Link>
                       </>
                     ))}
-                    {/* <DropdownItem>Option 2</DropdownItem> */}
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>

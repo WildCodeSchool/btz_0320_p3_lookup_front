@@ -21,7 +21,6 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
@@ -114,8 +113,9 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               <div>
                 <img
                   className={style.imgModal}
-                  src={ImageSmall}
+                  src={picture}
                   alt="une description"
+                  width="50%"
                 />
                 <p>{description}</p>
               </div>

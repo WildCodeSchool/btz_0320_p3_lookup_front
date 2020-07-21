@@ -15,17 +15,6 @@ const Produits = () => {
   const [error, setError] = useState('');
   const { uuid } = useParams();
 
-  // const right = {
-  //   float: 'right',
-  //   translate: '25%',
-  // };
-  // const left = {
-  //   float: 'left',
-  //   translate: '-25%',
-  // };
-  // const whiteBackground = {
-  //   width: '75vw',
-  // };
   const blueBackground = {
     backgroundColor: 'lightblue',
   };
