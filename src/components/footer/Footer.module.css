@@ -9,6 +9,12 @@ footer {
   border: none;
 }
 
+.topLine {
+  height: 1px;
+  background: #3965a1;
+  border-radius: 20%;
+}
+
 .signature {
   margin: 2vh 0 0 0;
 }
@@ -22,8 +28,7 @@ footer {
 }
 
 .partners {
-  width: 10vw;
-  height: 15vh;
+  width: 8vw;
 }
 
 .footertext {

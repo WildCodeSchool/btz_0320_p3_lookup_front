@@ -1,38 +1,52 @@
 .title2 {
-  color: #e7742d;
-  font-size: 70px;
-  margin-top: 5vh;
+  color: #3965a1;
+  font-size: 6vh;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
 }
 
 .title3 {
-  color: #e7742d;
-  font-size: 40px;
+  color: #3965a1;
+  font-size: 30px;
 }
 
 .subtitle {
-  color: #3965a1;
-  font-size: 40px;
-  margin-bottom: 30px;
+  color: black;
+  font-size: 35px;
+  margin-top: 20px;
+  margin-bottom: 60px;
   margin-left: 65px;
   margin-right: 65px;
   font-family: 'Montserrat', 'sans-serif';
 }
 
 .subtitle2 {
-  color: #3965a1;
-  font-size: 25px;
-  margin-bottom: 30px;
+  color: black;
+  font-size: 20px;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 .trouvez {
   background-color: #3965a1;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 0px;
 }
+
+.trouvez:hover {
+  background-color: #3965a1;
+  opacity: 0.9;
+}
+
 .sectionImgText {
   display: flex;
-  margin: 5vw;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
   height: 60vh;
+  background-color: #3965a1;
+  min-height: 40vw;
 }
 .gamme {
   background-color: #e2f2f2;
@@ -48,8 +62,31 @@
   z-index: 1;
 }
 .inclinaison {
-  box-shadow: 20px 20px 10px #d4d0d0;
+  box-shadow: 25px 25px 0px #d4d0d0;
   width: 40vw;
-  margin-left: 10vw;
   z-index: 10;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1290px) {
+  .title3 {
+    font-size: 25px;
+  }
+
+  .subtitle2 {
+    font-size: 15px;
+  }
+
+  .trouvez {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .subtitle {
+    font-size: 25px;
+  }
+
+  .sectionImgText {
+    min-height: 80vh;
+  }
 }
