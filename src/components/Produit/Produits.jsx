@@ -21,20 +21,20 @@ const Produits = () => {
 
   const getDataProduct = async () => {
     try {
+      setIsLoading(true);
       const res = await axios.get(
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products/${uuid}`
       );
       setProductData(res.data);
+      setIsLoading(false);
     } catch (err) {
       setError(err);
-    } finally {
-      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getDataProduct();
-  }, []);
+  }, [uuid]);
 
   if (isLoading) {
     return <Spinner color="primary" />;

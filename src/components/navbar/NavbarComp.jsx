@@ -27,7 +27,7 @@ import linkedin from './linkedin.png';
 const MyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [productData, setProductData] = useState([]);
-  const [productInfoData, setProductInfoData] = useState([]);
+  // const [productInfoData, setProductInfoData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -39,10 +39,6 @@ const MyNavbar = () => {
         'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products'
       );
       setProductData(res.data);
-      const resInfoProduct = await Axios.get(
-        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products_info`
-      );
-      setProductInfoData(resInfoProduct.data);
     } catch (err) {
       setError(err);
     } finally {
@@ -84,7 +80,7 @@ const MyNavbar = () => {
                   <DropdownMenu right>
                     {productData.map((product) => (
                       <>
-                        <Link to={`/${product.uuid}/product`}>
+                        <Link to={`/product/${product.uuid}`}>
                           <DropdownItem>
                             {ReactHtmlParser(product.name)}
                           </DropdownItem>
