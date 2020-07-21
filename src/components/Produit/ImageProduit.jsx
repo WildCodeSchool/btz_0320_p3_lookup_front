@@ -81,6 +81,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
         }
       );
       notifySuccess();
+      toggle();
     } catch (err) {
       notifyError();
       setError(err);
@@ -97,7 +98,6 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
     return <p>{error}</p>;
   }
 
-  // const reduction = '20%';
   return (
     <Container>
       <img src={picture} alt={name} width="70%" />
@@ -136,7 +136,6 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                   />
                 </InputGroupAddon>
               </InputGroup>
-              {/* <p>Réduction: {reduction}</p> */}
 
               <FormGroup>
                 <Label for="companyName">Entreprise</Label>
@@ -277,7 +276,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               </FormGroup>
             </ModalBody>
             <ModalFooter>
-              <Button block color="success" type="submit" onClick={toggle}>
+              <Button block color="success" type="submit">
                 Validez votre devis
               </Button>
               <Button block color="danger" onClick={toggle}>
