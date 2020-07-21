@@ -5,17 +5,13 @@
 
 .rotate {
   rotate: 20deg;
-  animation: rotation 1s ease-in-out;
+  animation: rotation 1.2s ease-in-out;
 }
 
 @keyframes rotation {
   from {
     -webkit-transform-origin: bottom left;
-    -webkit-transform: translate(0% 0%);
     -webkit-transform: rotate(110deg);
-  }
-  75% {
-    -webkit-transform: translate(0% -100%);
   }
   to {
     -webkit-transform: rotate(0deg);
