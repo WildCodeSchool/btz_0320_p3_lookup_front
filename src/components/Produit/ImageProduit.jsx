@@ -27,6 +27,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
   const [message, setMessage] = useState('');
   const [clients, setClients] = useState({});
+  const [clientsName, setClientsName] = useState({});
   const [quantity, setQuantity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -68,12 +69,14 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
       await Axios.post(
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/sendMail`,
         {
-          html: `<p><b>entreprise :</b> ${clients.companyName},</p>
-        <p><b>numéro de siret :</b> ${clients.siret},</p>
-        <p><b>adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
-        <p><b>email :</b> ${clients.email},</p>
-        <p><b>telephone :</b> ${clients.phone}.</p>
-        <p><b>quantités :</b> ${quantity},</p>
+          html: `<p><b>Entreprise :</b> ${clients.companyName},</p>
+          <p><b>Nom :</b> ${clientsName.lastname},</p>
+          <p><b>Prénom :</b> ${clientsName.firstname},</p>
+        <p><b>Numéro de siret :</b> ${clients.siret},</p>
+        <p><b>Adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
+        <p><b>Email :</b> ${clients.email},</p>
+        <p><b>Telephone :</b> ${clients.phone}.</p>
+        <p><b>Quantités :</b> ${quantity},</p>
         <p>Voici le message du client :</p>
         <p>${message}</p>`,
           subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
@@ -150,6 +153,38 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Entreprise"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="companyName">Nom</Label>
+                <Input
+                  type="text"
+                  name="lastname"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClientsName({
+                      ...clientsName,
+                      lastname: e.target.value,
+                    })
+                  }
+                  placeholder="Nom"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="companyName">Prénom</Label>
+                <Input
+                  type="text"
+                  name="firstname"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClientsName({
+                      ...clientsName,
+                      firstname: e.target.value,
+                    })
+                  }
+                  placeholder="Prenom"
                   required
                 />
               </FormGroup>
