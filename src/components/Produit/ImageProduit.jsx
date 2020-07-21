@@ -21,7 +21,6 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
@@ -103,7 +102,11 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
     <Container>
       <img src={picture} alt={name} width="70%" />
       <div>
-        <Button color="danger" onClick={toggle}>
+        <Button
+          color="danger"
+          onClick={toggle}
+          style={{ 'margin-top': '20px' }}
+        >
           {buttonLabel}
         </Button>
         <Modal isOpen={modal} toggle={toggle} className="modal-lg">
@@ -114,8 +117,9 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               <div>
                 <img
                   className={style.imgModal}
-                  src={ImageSmall}
+                  src={picture}
                   alt="une description"
+                  width="50%"
                 />
                 <p>{description}</p>
               </div>
