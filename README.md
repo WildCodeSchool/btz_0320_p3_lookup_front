@@ -17,3 +17,22 @@ This template provide :
 - Pre-commit prettifying
 - Pre-commit linting check
 - Pull request linting check (thanks to Github Action)
+
+## Project
+
+- This project was made for study porpose but for a real client.
+- Classic website with backoffice management.
+- It was made out with react, classic css and librairies like toastify, reactstrap, useForm etc...
+- Components are ordered by folders.
+
+## Developpers:
+
+##### [Marc](https://github.com/Neo-Ryo)
+
+##### [Marion](https://github.com/Marion-H)
+
+##### [Adèle](https://github.com/Adelebp)
+
+##### [Jp](https://github.com/jpgrindcore007)
+
+##### [Tommy](https://github.com/Tommychinn)
