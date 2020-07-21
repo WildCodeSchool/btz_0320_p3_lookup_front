@@ -1,9 +1,8 @@
 .img_about {
-  margin-top: 30px;
+  margin-top: 230px;
+  width: 55%;
 
-  width: 85%;
-  /* height: 20%; */
-  box-shadow: 15px 15px 0px lightblue;
+  box-shadow: 10px 10px 0px lightblue;
 }
 
 .text {
