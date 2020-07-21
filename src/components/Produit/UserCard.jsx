@@ -6,7 +6,7 @@ import style from './UserCard.module.css';
 const UserCard = ({ name, position, text, photo }) => {
   return (
     <>
-      <img className={style.picture} src={photo} alt={name} />
+      <img className={style.picture} src={photo} alt="user pic" />
       <h3 className={style.name}> {name}</h3>
       <h6 className={style.position}>{position}</h6>
       <p className={style.text}>{text}</p>
