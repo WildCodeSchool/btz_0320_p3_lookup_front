@@ -1,16 +1,17 @@
 .wrapper {
   margin-top: 40vh;
-  margin-left: 25vw;
+  margin-left: 40vw;
 }
 
 .rotate {
-  animation: rotation 1s linear;
+  rotate: 20deg;
+  animation: rotation 1.2s ease-in-out;
 }
 
 @keyframes rotation {
   from {
-    -webkit-transform-origin: bottom;
-    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: bottom left;
+    -webkit-transform: rotate(110deg);
   }
   to {
     -webkit-transform: rotate(0deg);
