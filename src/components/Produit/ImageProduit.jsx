@@ -19,6 +19,7 @@ import { useForm } from 'react-hook-form';
 import Axios from 'axios';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import ReactHtmlParser from 'react-html-parser';
 import 'react-toastify/dist/ReactToastify.css';
 
 import style from './ImageProduit.module.css';
@@ -69,7 +70,8 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
       await Axios.post(
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/sendMail`,
         {
-          html: `<p><b>Entreprise :</b> ${clients.companyName},</p>
+          html: `<p><b>Produit :</b> ${name},</p>
+          <p><b>Entreprise :</b> ${clients.companyName},</p>
           <p><b>Nom :</b> ${clientsName.lastname},</p>
           <p><b>Prénom :</b> ${clientsName.firstname},</p>
         <p><b>Numéro de siret :</b> ${clients.siret},</p>
@@ -80,7 +82,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
         <p>Voici le message du client :</p>
         <p>${message}</p>`,
           subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
-          emailTo: 'doudou6500@gmail.com', // Email antonin
+          emailTo: 'contact@lookup-france.com', // Email antonin
         }
       );
       notifySuccess();
@@ -103,7 +105,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
 
   return (
     <Container>
-      <img src={picture} alt={name} width="70%" />
+      <img src={picture} alt={name} width="70%" className={style.imgProduit} />
       <div>
         <Button
           color="danger"
@@ -124,7 +126,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                   alt="une description"
                   width="50%"
                 />
-                <p>{description}</p>
+                <p>{ReactHtmlParser(description)}</p>
               </div>
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
