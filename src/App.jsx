@@ -24,9 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <Fade>
-        <Router />
-      </Fade>
+      <Router />
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
