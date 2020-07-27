@@ -19,6 +19,7 @@ import { useForm } from 'react-hook-form';
 import Axios from 'axios';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import ReactHtmlParser from 'react-html-parser';
 import 'react-toastify/dist/ReactToastify.css';
 
 import ImageSmall from './img/support-300w.png';
@@ -28,6 +29,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
   const [modal, setModal] = useState(false);
   const [message, setMessage] = useState('');
   const [clients, setClients] = useState({});
+  const [clientsName, setClientsName] = useState({});
   const [quantity, setQuantity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -69,19 +71,23 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
       await Axios.post(
         `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/sendMail`,
         {
-          html: `<p><b>entreprise :</b> ${clients.companyName},</p>
-        <p><b>numéro de siret :</b> ${clients.siret},</p>
-        <p><b>adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
-        <p><b>email :</b> ${clients.email},</p>
-        <p><b>telephone :</b> ${clients.phone}.</p>
-        <p><b>quantités :</b> ${quantity},</p>
+          html: `<p><b>Produit :</b> ${name},</p>
+          <p><b>Entreprise :</b> ${clients.companyName},</p>
+          <p><b>Nom :</b> ${clientsName.lastname},</p>
+          <p><b>Prénom :</b> ${clientsName.firstname},</p>
+        <p><b>Numéro de siret :</b> ${clients.siret},</p>
+        <p><b>Adresse :</b> ${clients.streetNumber} ${clients.streetName} ${clients.postalCode} ${clients.city},</p>
+        <p><b>Email :</b> ${clients.email},</p>
+        <p><b>Telephone :</b> ${clients.phone}.</p>
+        <p><b>Quantités :</b> ${quantity},</p>
         <p>Voici le message du client :</p>
         <p>${message}</p>`,
           subject: `Demande de devis sur LookUp.fr de la part de ${clients.companyName}`,
-          emailTo: 'doudou6500@gmail.com', // Email antonin
+          emailTo: 'contact@lookup-france.com', // Email antonin
         }
       );
       notifySuccess();
+      toggle();
     } catch (err) {
       notifyError();
       setError(err);
@@ -98,10 +104,9 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
     return <p>{error}</p>;
   }
 
-  // const reduction = '20%';
   return (
     <Container>
-      <img src={picture} alt={name} width="70%" />
+      <img src={picture} alt={name} width="70%" className={style.imgProduit} />
       <div>
         <Button color="danger" onClick={toggle}>
           {buttonLabel}
@@ -117,7 +122,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                   src={ImageSmall}
                   alt="une description"
                 />
-                <p>{description}</p>
+                <p>{ReactHtmlParser(description)}</p>
               </div>
               <InputGroup>
                 <InputGroupAddon addonType="prepend">
@@ -132,7 +137,6 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                   />
                 </InputGroupAddon>
               </InputGroup>
-              {/* <p>Réduction: {reduction}</p> */}
 
               <FormGroup>
                 <Label for="companyName">Entreprise</Label>
@@ -147,6 +151,38 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
                     })
                   }
                   placeholder="Entreprise"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="companyName">Nom</Label>
+                <Input
+                  type="text"
+                  name="lastname"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClientsName({
+                      ...clientsName,
+                      lastname: e.target.value,
+                    })
+                  }
+                  placeholder="Nom"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="companyName">Prénom</Label>
+                <Input
+                  type="text"
+                  name="firstname"
+                  ref={register({ required: true })}
+                  onChange={(e) =>
+                    setClientsName({
+                      ...clientsName,
+                      firstname: e.target.value,
+                    })
+                  }
+                  placeholder="Prenom"
                   required
                 />
               </FormGroup>
@@ -273,7 +309,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               </FormGroup>
             </ModalBody>
             <ModalFooter>
-              <Button block color="success" type="submit" onClick={toggle}>
+              <Button block color="success" type="submit">
                 Validez votre devis
               </Button>
               <Button block color="danger" onClick={toggle}>
