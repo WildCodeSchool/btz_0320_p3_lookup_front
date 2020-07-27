@@ -13,7 +13,7 @@ export default function About() {
           <img className={styles.img_about} src={antonin} alt="A propos" />
         </Col>
         <Col lg="7">
-          <h3 className={styles.title_about}>Humain, Nature & Technologie </h3>
+          <h3 className={styles.title_about}>A Propos </h3>
           <p className={styles.text}>
             Comme vous, chez LookUp, nous observons le monde de l’entreprise se
             digitaliser et nous sommes convaincus des ces bienfaits. Pour autant
