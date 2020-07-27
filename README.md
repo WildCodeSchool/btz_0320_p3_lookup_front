@@ -18,6 +18,8 @@ This template provide :
 - Pre-commit linting check
 - Pull request linting check (thanks to Github Action)
 
+## Architecture
+
 ## Project
 
 - This project was made for study porpose but for a real client.
