@@ -38,7 +38,7 @@ export default function PressRelation() {
           md={{ size: 8, offset: 2 }}
           className={style.title}
         >
-          <h2>Ils parlent de nous ...</h2>
+          <h2>Il parle de nous ...</h2>
         </Col>
         <Col lg={{ size: 12 }} md={{ size: 12 }}>
           <Row className="justify-content-center">

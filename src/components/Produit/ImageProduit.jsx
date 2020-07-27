@@ -22,6 +22,7 @@ import { toast } from 'react-toastify';
 import ReactHtmlParser from 'react-html-parser';
 import 'react-toastify/dist/ReactToastify.css';
 
+import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
@@ -107,11 +108,7 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
     <Container>
       <img src={picture} alt={name} width="70%" className={style.imgProduit} />
       <div>
-        <Button
-          color="danger"
-          onClick={toggle}
-          style={{ 'margin-top': '20px' }}
-        >
+        <Button color="danger" onClick={toggle}>
           {buttonLabel}
         </Button>
         <Modal isOpen={modal} toggle={toggle} className="modal-lg">
@@ -122,9 +119,8 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               <div>
                 <img
                   className={style.imgModal}
-                  src={picture}
+                  src={ImageSmall}
                   alt="une description"
-                  width="50%"
                 />
                 <p>{ReactHtmlParser(description)}</p>
               </div>

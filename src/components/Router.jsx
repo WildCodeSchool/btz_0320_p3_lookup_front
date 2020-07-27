@@ -14,7 +14,7 @@ export default function MyRouter() {
       <MyNavbar />
       <Switch>
         <Route path="/about" component={About} />
-        <Route path="/product/:uuid" component={Produits} />
+        <Route path="/product" component={Produits} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
         <Route exact path="/" component={Home} />

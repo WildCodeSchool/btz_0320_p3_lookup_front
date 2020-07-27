@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -9,53 +9,18 @@ import {
   NavLink,
   Col,
   Row,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Spinner,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import ReactHtmlParser from 'react-html-parser';
-
 import styles from './NavbarComp.module.css';
-import logo from './LookUp.png';
-import facebook from './facebook.png';
-import linkedin from './linkedin.png';
+
+const logo = require('./LookUp.png');
+const facebook = require('./facebook.png');
+const linkedin = require('./linkedin.png');
 
 const MyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [productDataInfo, setProductDataInfo] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
 
   const toggle = () => setIsOpen(!isOpen);
-
-  const getDataProduct = async () => {
-    try {
-      const res = await Axios.get(
-        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products_info'
-      );
-      setProductDataInfo(res.data);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getDataProduct();
-  }, []);
-
-  if (isLoading) {
-    return <Spinner color="primary" />;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
 
   return (
     <div>
@@ -72,22 +37,11 @@ const MyNavbar = () => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="mr-auto" navbar>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Produits
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    {productDataInfo.map((product) => (
-                      <>
-                        <Link to={`/product/${product.ProductUuid}`}>
-                          <DropdownItem>
-                            {ReactHtmlParser(product.title)}
-                          </DropdownItem>
-                        </Link>
-                      </>
-                    ))}
-                  </DropdownMenu>
-                </UncontrolledDropdown>
+                <NavItem>
+                  <Link to="/product">
+                    <NavLink>Produits</NavLink>
+                  </Link>
+                </NavItem>
                 <NavItem>
                   <Link to="/about">
                     <NavLink>A propos</NavLink>
