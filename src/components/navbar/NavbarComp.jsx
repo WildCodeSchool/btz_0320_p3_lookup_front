@@ -22,7 +22,7 @@ import ReactHtmlParser from 'react-html-parser';
 import styles from './NavbarComp.module.css';
 import logo from './LookUp.png';
 import facebook from './facebook.png';
-import linkedin from './linkedin.png';
+import linkedin from './In-Blue-34.png';
 
 const MyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,13 +89,13 @@ const MyNavbar = () => {
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>
-                  <Link to="/about">
-                    <NavLink>A propos</NavLink>
+                  <Link to="/services">
+                    <NavLink>Services</NavLink>
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <Link to="/services">
-                    <NavLink>Services</NavLink>
+                  <Link to="/about">
+                    <NavLink>A propos</NavLink>
                   </Link>
                 </NavItem>
               </Nav>
@@ -126,6 +126,7 @@ const MyNavbar = () => {
                   className={styles.linkedin}
                   src={linkedin}
                   alt="linkedin"
+                  width="30px"
                 />
               </NavLink>
             </Collapse>
