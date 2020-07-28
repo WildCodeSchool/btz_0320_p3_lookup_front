@@ -11,10 +11,4 @@
   .logo {
     width: 40%;
   }
-
-  Nav {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-  }
 }
