@@ -7,7 +7,6 @@ import style from './Press.module.css';
 export default function PressRelation() {
   const [isLoading, setIsLoading] = useState(true);
   const [presse, setPresse] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -28,6 +27,10 @@ export default function PressRelation() {
 
   if (isLoading) {
     return <Spinner color="info" />;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
   }
 
   return (
