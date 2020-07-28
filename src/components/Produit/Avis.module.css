@@ -6,11 +6,13 @@
   font-family: 'Catamaran', sans-serif;
   font-size: 120px;
   padding-top: 50vh;
+  color: #3965a1;
 }
 
 .quote2 {
   font-family: 'Catamaran', sans-serif;
   font-size: 120px;
+  color: #3965a1;
 }
 
 @media screen and (max-width: 1500px) {
