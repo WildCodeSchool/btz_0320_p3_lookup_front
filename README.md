@@ -21,9 +21,9 @@ This template provide :
 ## Project
 
 - This project was made for study porpose but for a real client.
-- Classic website with backoffice management.
+- Classic website with backoffice management. >>> https://github.com/WildCodeSchool/btz_0320_p3_lookup_admin
 - It was made out with react, classic css and librairies like toastify, reactstrap, useForm etc...
-- Components are ordered by folders.
+- Components are ordered by folders, each folders contains files that are named after it.
 
 ## Developpers:
 
