@@ -74,7 +74,7 @@ export default function Contact() {
         <p><b>MESSAGE:</b>
  ${clientMail.message}</p>`,
         subject: `Mail de contact > Lookup.fr de MR/Mme ${clientMail.surname}  ${clientMail.name}`,
-        emailTo: 'marco.sch4064@gmail.com',
+        emailTo: 'contact@lookup-france.com',
       });
       notifySuccess();
     } catch (err) {
@@ -136,7 +136,6 @@ export default function Contact() {
                   name="phone"
                   id="phone"
                   placeholder="Numéro de téléphone"
-                  // pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
                   required
                 />
               </Col>

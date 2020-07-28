@@ -10,22 +10,6 @@ import {
 import axios from 'axios';
 import styles from './CarouselHome.module.css';
 
-// const slide1 = require('./Inclinaison1.jpg');
-// const slide2 = require('./Produit3.jpg');
-// const slide3 = require('./Support1.jpg');
-
-// const items = [
-//   {
-//     src: slide1,
-//   },
-//   {
-//     src: slide2,
-//   },
-//   {
-//     src: slide3,
-//   },
-// ];
-
 const CarouselHome = () => {
   const [carousels, setCarousels] = useState([]);
   const [isLoading, setisLoading] = useState(true);
@@ -78,10 +62,7 @@ const CarouselHome = () => {
         className={styles.carouselitem}
       >
         <img src={item.picture} alt={item.altText} />
-        <CarouselCaption
-        // captionText={item.description}
-        // captionHeader={item.title}
-        />
+        <CarouselCaption />
       </CarouselItem>
     );
   });

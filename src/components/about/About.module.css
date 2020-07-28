@@ -1,15 +1,14 @@
 .img_about {
-  margin-top: 230px;
-  width: 55%;
+  margin-top: 30px;
 
   width: 85%;
-  box-shadow: 10px 10px 0px lightblue;
+  box-shadow: 15px 15px 0px lightblue;
 }
 
 .text {
   margin-left: 2rem;
   margin-right: 7rem;
-  padding-top: 40px;
+  margin-top: 15vh;
 }
 
 .title_about {
@@ -18,14 +17,30 @@
   font-size: 40px;
   margin-top: 70px;
   margin-bottom: 40px;
-  margin-right: 7rem;
 }
 
 .justify {
-  text-align: justify !important;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
   font-size: 20px;
-  color: black;
+}
+
+@media screen and (max-width: 1500px) {
+  .img_about {
+    margin-top: 15vh;
+  }
+  .text {
+    margin-top: 3vh;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .img_about {
+    margin-top: 5vh;
+  }
+  .text {
+    margin-top: 3vh;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

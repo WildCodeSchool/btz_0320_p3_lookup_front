@@ -6,7 +6,6 @@ import styles from './Footer.module.css';
 export default function MyFooter() {
   const [isLoading, setIsLoading] = useState(true);
   const [partner, setPartner] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -29,11 +28,15 @@ export default function MyFooter() {
     return <Spinner color="info" />;
   }
 
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <footer>
       <Row>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          <h5 style={{ color: '#3965a1' }}>développé avec le soutien de</h5>
+          <h5 style={{ color: '#3965a1' }}>Développé en partenariat avec :</h5>
         </Col>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row>

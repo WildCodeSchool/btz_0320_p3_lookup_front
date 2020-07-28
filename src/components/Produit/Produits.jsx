@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Spinner, Col, Row, Container } from 'reactstrap';
 import ReactHtmlParser from 'react-html-parser';
-import { useParams } from 'react-router-dom';
 
 import Description from './Description';
 import ImageProduit from './ImageProduit';
@@ -13,7 +12,6 @@ const Produits = () => {
   const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
-  const { uuid } = useParams();
 
   const blueBackground = {
     backgroundColor: 'lightblue',
@@ -21,20 +19,20 @@ const Produits = () => {
 
   const getDataProduct = async () => {
     try {
-      setIsLoading(true);
       const res = await axios.get(
-        `https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products/${uuid}`
+        'https://btz-js-202003-p3-lookup-back.jsrover.wilders.dev/products'
       );
       setProductData(res.data);
-      setIsLoading(false);
     } catch (err) {
       setError(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getDataProduct();
-  }, [uuid]);
+  }, []);
 
   if (isLoading) {
     return <Spinner color="primary" />;
@@ -46,17 +44,26 @@ const Produits = () => {
   return (
     <Row>
       <Col>
-        <ImageProduit
-          buttonLabel="Demande de devis"
-          picture={productData.picture}
-          description={productData.description}
-          name={productData.name}
-        />
-        <Container>
-          <h1 className={style.title}>{ReactHtmlParser(productData.name)}</h1>
-        </Container>
-        <Description backgroundBlue={blueBackground} uuid={productData.uuid} />
-        <Avis />
+        {productData.map((product) => (
+          <>
+            <ImageProduit
+              buttonLabel="Demande de devis"
+              key={product.uuid}
+              picture={product.picture}
+              description={product.description}
+              name={product.name}
+            />
+            <Container>
+              <h1 className={style.title}>{ReactHtmlParser(product.name)}</h1>
+            </Container>
+            <Description
+              backgroundBlue={blueBackground}
+              key={product.uuid}
+              uuid={product.uuid}
+            />
+            <Avis />
+          </>
+        ))}
       </Col>
     </Row>
   );

@@ -1,9 +1,5 @@
 import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
-
-import guillaume from './img/guillaume.jpeg';
-import bertrand from './img/bertrand.png';
-import justine from './img/justine.png';
 import UserCard from './UserCard';
 import style from './Avis.module.css';
 
@@ -11,7 +7,7 @@ const avis = [
   {
     id: 1,
     name: 'Bertrand L.',
-    photo: bertrand,
+    photo: 'https://via.placeholder.com/300x300',
     position: 'Chargé de Communication',
     compagny: 'GROUPE RENAULT',
     text:
@@ -20,7 +16,7 @@ const avis = [
   {
     id: 2,
     name: 'Justine C.',
-    photo: justine,
+    photo: 'https://i.imgur.com/oDsreTH.jpg',
     position: 'Responsable Service Client',
     compagny: 'HOPAAL',
     text:
@@ -29,7 +25,7 @@ const avis = [
   {
     id: 3,
     name: 'Guillaume M.',
-    photo: guillaume,
+    photo: 'https://i.imgur.com/KCFZrJI.jpg',
     position: 'Juriste',
     compagny: 'EXCO FIDUCIAIRE',
     text:

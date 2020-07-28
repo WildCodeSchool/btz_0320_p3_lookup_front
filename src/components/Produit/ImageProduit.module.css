@@ -6,6 +6,9 @@
 .image {
   margin: 0 25vw;
 }
+.imgProduit {
+  margin-top: 20px;
+}
 
 .imgModal {
   float: left;
