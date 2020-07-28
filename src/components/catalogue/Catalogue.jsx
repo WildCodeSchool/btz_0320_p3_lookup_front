@@ -12,10 +12,6 @@ const Catalogue = () => {
       <Row>
         <Col>
           <h2 className={styles.title2}>L'ergonomie... naturellement</h2>
-          {/* <h2 className={styles.title2}>Découvrez</h2>
-          <p className={styles.subtitle}>
-            Des solutions ergonomiques pour le monde d'aujourd'hui et de demain
-          </p> */}
         </Col>
       </Row>
       <Row className={styles.sectionImgText}>

@@ -22,7 +22,6 @@ import { toast } from 'react-toastify';
 import ReactHtmlParser from 'react-html-parser';
 import 'react-toastify/dist/ReactToastify.css';
 
-import ImageSmall from './img/support-300w.png';
 import style from './ImageProduit.module.css';
 
 function ImageProduit({ buttonLabel, picture, description, name }) {
@@ -119,8 +118,9 @@ function ImageProduit({ buttonLabel, picture, description, name }) {
               <div>
                 <img
                   className={style.imgModal}
-                  src={ImageSmall}
-                  alt="une description"
+                  src={picture}
+                  alt={name}
+                  width="40%"
                 />
                 <p>{ReactHtmlParser(description)}</p>
               </div>

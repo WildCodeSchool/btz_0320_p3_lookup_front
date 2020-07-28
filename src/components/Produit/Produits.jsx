@@ -13,17 +13,6 @@ const Produits = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // const right = {
-  //   float: 'right',
-  //   translate: '25%',
-  // };
-  // const left = {
-  //   float: 'left',
-  //   translate: '-25%',
-  // };
-  // const whiteBackground = {
-  //   width: '75vw',
-  // };
   const blueBackground = {
     backgroundColor: 'lightblue',
   };

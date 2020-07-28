@@ -6,7 +6,6 @@ import styles from './Footer.module.css';
 export default function MyFooter() {
   const [isLoading, setIsLoading] = useState(true);
   const [partner, setPartner] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -27,6 +26,10 @@ export default function MyFooter() {
 
   if (isLoading) {
     return <Spinner color="info" />;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
   }
 
   return (
