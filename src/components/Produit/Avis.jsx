@@ -7,7 +7,7 @@ const avis = [
   {
     id: 1,
     name: 'Bertrand L.',
-    photo: 'https://via.placeholder.com/300x300',
+    photo: 'https://i.imgur.com/jpmnpf7.png',
     position: 'Chargé de Communication',
     compagny: 'GROUPE RENAULT',
     text:
