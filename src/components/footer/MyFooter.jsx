@@ -34,9 +34,10 @@ export default function MyFooter() {
 
   return (
     <footer>
+      <Row className={styles.hr} />
       <Row>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
-          <h5 style={{ color: '#3965a1' }}>Développé en partenariat avec :</h5>
+          <h5 className={styles.titleH5}>Développé en partenariat avec :</h5>
         </Col>
         <Col lg={{ size: 8, offset: 2 }} md={{ size: 8, offset: 2 }}>
           <Row>
