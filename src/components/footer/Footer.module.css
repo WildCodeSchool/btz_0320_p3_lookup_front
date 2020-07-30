@@ -4,19 +4,22 @@ footer {
   justify-content: center;
   background: white;
   width: 100vw;
-  padding: 1em;
   margin-right: -1em;
   border: none;
 }
 
-.topLine {
-  height: 1px;
-  background: #3965a1;
-  border-radius: 20%;
+.hr {
+  height: 2px;
+  margin-bottom: 1em;
+  background-color: #3965a1;
+}
+
+.titleH5 {
+  color: #3965a1;
 }
 
 .signature {
-  margin: 2vh 0 0 0;
+  margin: 2vh 0 2vh 0;
 }
 
 .signature a {
