@@ -1,11 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lookup Front
+
+This project was bootstrapped with [Create React App](https://github.com/Karnak19/create-react-app).
 
 ## Getting started
 
 ```bash
-$ npx degit Karnak19/react-prettier-eslint-action my-app
-$ cd my-app && git init && npm install
+$ git clone
+$ npm install
 $ npm start
+```
+
+## Architecture
+
+```bash
+src
+├──components
+    └── about
+    └── carousel home
+    └── catalogue
+    └── footer
+    └── landing page # page Faq
+    └── navbar
+    └── newsletter
+    └── pressRelation
+    └── Produit
+    └── services
+    └── contact
 ```
 
 ## Why this template over create-react-app ?
