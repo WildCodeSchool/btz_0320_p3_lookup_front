@@ -9,10 +9,20 @@ export default function About() {
   return (
     <Container fluid className={styles.justify}>
       <Row>
-        <Col lg="5" className="d-flex flex-column align-items-center">
+        <Col
+          lg="5"
+          md="12"
+          sm="12"
+          className="d-flex flex-column align-content-center"
+        >
           <img className={styles.img_about} src={antonin} alt="A propos" />
         </Col>
-        <Col lg="7">
+        <Col
+          lg="7"
+          md="12"
+          sm="12"
+          className="d-flex flex-column align-content-center"
+        >
           <h3 className={styles.title_about}>A Propos </h3>
           <p className={styles.text}>
             Comme vous, chez LookUp, nous observons le monde de l’entreprise se
